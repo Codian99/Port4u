@@ -1,0 +1,115 @@
+name: portfolio
+
+services:
+  nginx:
+    image: nginx:1.27-alpine
+    container_name: portfolio-nginx
+    restart: unless-stopped
+    ports:
+      - "${NGINX_PORT:-80}:80"
+    volumes:
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - portfolio
+
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/frontend/Dockerfile
+      target: runner
+    container_name: portfolio-frontend
+    restart: unless-stopped
+    environment:
+      NUXT_PUBLIC_API_BASE: /api/v1
+      NUXT_BACKEND_URL: http://backend:8000
+      NUXT_PUBLIC_SITE_URL: http://localhost
+    ports:
+      - "${FRONTEND_PORT:-3000}:3000"
+    depends_on:
+      - backend
+    networks:
+      - portfolio
+
+  backend:
+    build:
+      context: .
+      dockerfile: docker/backend/Dockerfile
+    container_name: portfolio-backend
+    restart: unless-stopped
+    environment:
+      APP_NAME: "Portfolio API"
+      APP_ENV: production
+      APP_DEBUG: "false"
+      APP_URL: http://localhost:8000
+      APP_KEY: ${APP_KEY:-}
+      DB_CONNECTION: mysql
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_DATABASE: ${MYSQL_DATABASE:-portfolio}
+      DB_USERNAME: ${MYSQL_USER:-portfolio}
+      DB_PASSWORD: ${MYSQL_PASSWORD:-secret}
+      CACHE_STORE: redis
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      SESSION_DRIVER: database
+      QUEUE_CONNECTION: database
+      PORTFOLIO_NAME: ${PORTFOLIO_NAME:-John Doe}
+      PORTFOLIO_TITLE: ${PORTFOLIO_TITLE:-Full Stack Web Developer}
+      PORTFOLIO_EMAIL: ${PORTFOLIO_EMAIL:-hello@example.com}
+    ports:
+      - "${BACKEND_PORT:-8000}:8000"
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - portfolio
+
+  mysql:
+    image: mysql:8.4
+    container_name: portfolio-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-portfolio}
+      MYSQL_USER: ${MYSQL_USER:-portfolio}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-secret}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-rootsecret}
+    ports:
+      - "${MYSQL_PORT:-3306}:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD:-rootsecret}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    networks:
+      - portfolio
+
+  redis:
+    image: redis:7-alpine
+    container_name: portfolio-redis
+    restart: unless-stopped
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    networks:
+      - portfolio
+
+volumes:
+  mysql_data:
+  redis_data:
+
+networks:
+  portfolio:
+    driver: bridge
