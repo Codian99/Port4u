@@ -1,48 +1,58 @@
 <script setup lang="ts">
 defineOptions({ name: 'AppNavbar' })
 
-const route = useRoute()
 const colorMode = useColorMode()
 
-const links = [
-  { label: 'Home', to: '/' },
-  { label: 'About', to: '/about' },
-  { label: 'Projects', to: '/projects' },
-  { label: 'Skills', to: '/skills' },
-  { label: 'Experience', to: '/experience' },
-  { label: 'Contact', to: '/contact' },
+const sections = [
+  { id: 'home', label: 'Home' },
+  { id: 'about', label: 'About' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'contact', label: 'Contact' },
 ]
 
 const scrolled = ref(false)
 const mobileOpen = ref(false)
+const activeSection = ref('home')
 
-function isActive(link: { to: string }) {
-  if (link.to === '/') return route.path === '/'
-  return route.path.startsWith(link.to)
+function isActive(section: { id: string }) {
+  return activeSection.value === section.id
 }
 
 function onScroll() {
   scrolled.value = window.scrollY > 24
+  updateActiveSection()
+}
+
+function updateActiveSection() {
+  const marker = window.scrollY + window.innerHeight * 0.4
+  let current = sections[0]?.id ?? 'home'
+  for (const section of sections) {
+    const el = document.getElementById(section.id)
+    if (el && el.offsetTop <= marker) current = section.id
+  }
+  activeSection.value = current
 }
 
 function closeMenu() {
   mobileOpen.value = false
 }
 
-watch(
-  () => route.path,
-  () => {
-    closeMenu()
-  }
-)
+function onNavigate() {
+  closeMenu()
+}
 
 onMounted(() => {
   onScroll()
+  updateActiveSection()
   window.addEventListener('scroll', onScroll, { passive: true })
+  window.addEventListener('resize', updateActiveSection)
 })
 
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', onScroll)
+  window.removeEventListener('resize', updateActiveSection)
 })
 
 function toggleTheme() {
@@ -56,11 +66,11 @@ function toggleTheme() {
     :class="scrolled ? 'glass shadow-lg shadow-black/30' : 'bg-transparent'"
   >
     <nav class="container-page flex h-[4.5rem] items-center justify-between" aria-label="Main navigation">
-      <NuxtLink
-        to="/"
+      <a
+        href="#home"
         class="group flex items-center gap-3"
-        aria-label="Go to homepage"
-        @click="closeMenu"
+        aria-label="Scroll to top"
+        @click="onNavigate"
       >
         <span
           class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-emerald-400 font-display text-sm font-bold text-white shadow-glow-sm transition-transform duration-300 group-hover:scale-105"
@@ -71,26 +81,27 @@ function toggleTheme() {
           Francis Ian
           <span class="text-gradient">.</span>
         </span>
-      </NuxtLink>
+      </a>
 
       <ul class="hidden items-center gap-1 md:flex" role="menubar">
-        <li v-for="link in links" :key="link.to" role="none">
-          <NuxtLink
-            :to="link.to"
+        <li v-for="section in sections" :key="section.id" role="none">
+          <a
+            :href="`#${section.id}`"
             role="menuitem"
             class="relative rounded-lg px-3.5 py-2 text-sm font-medium transition-colors"
             :class="
-              isActive(link) ? 'text-white' : 'text-[color:var(--color-muted)] hover:text-white'
+              isActive(section) ? 'text-white' : 'text-[color:var(--color-muted)] hover:text-white'
             "
-            :aria-current="isActive(link) ? 'page' : undefined"
+            :aria-current="isActive(section) ? 'true' : undefined"
+            @click="onNavigate"
           >
-            {{ link.label }}
+            {{ section.label }}
             <span
               class="absolute inset-x-3.5 -bottom-0.5 h-px bg-gradient-to-r from-blue-400 to-emerald-400 transition-transform duration-300"
-              :class="isActive(link) ? 'scale-x-100' : 'scale-x-0'"
+              :class="isActive(section) ? 'scale-x-100' : 'scale-x-0'"
               aria-hidden="true"
             />
-          </NuxtLink>
+          </a>
         </li>
       </ul>
 
@@ -109,12 +120,12 @@ function toggleTheme() {
         </button>
 
         <AppButton
-          to="/contact"
+          href="#contact"
           size="sm"
           class="hidden md:inline-flex"
           icon="lucide:send"
           icon-right
-          @click="closeMenu"
+          @click="onNavigate"
         >
           Let's Talk
         </AppButton>
@@ -137,26 +148,26 @@ function toggleTheme() {
       Navigation
     </p>
     <ul class="space-y-1">
-      <li v-for="link in links" :key="link.to">
-        <NuxtLink
-          :to="link.to"
+      <li v-for="section in sections" :key="section.id">
+        <a
+          :href="`#${section.id}`"
           class="flex items-center justify-between rounded-xl px-3 py-2.5 text-sm font-medium transition-colors"
           :class="
-            isActive(link)
+            isActive(section)
               ? 'bg-blue-500/10 text-white'
               : 'text-[color:var(--color-muted)] hover:bg-white/5 hover:text-white'
           "
-          @click="closeMenu"
+          @click="onNavigate"
         >
-          {{ link.label }}
+          {{ section.label }}
           <Icon
-            v-if="isActive(link)"
+            v-if="isActive(section)"
             name="lucide:check"
             :size="16"
             class="text-blue-400"
             aria-hidden="true"
           />
-        </NuxtLink>
+        </a>
       </li>
     </ul>
 
@@ -164,8 +175,8 @@ function toggleTheme() {
       class="mt-6 w-full"
       variant="primary"
       icon="lucide:mail"
-      to="/contact"
-      @click="closeMenu"
+      href="#contact"
+      @click="onNavigate"
     >
       Get in touch
     </AppButton>

@@ -31,7 +31,7 @@ export default defineNuxtConfig({
     public: {
       apiBase: process.env.NUXT_PUBLIC_API_BASE || '/api/v1',
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',
-      siteName: 'John Doe — Full Stack Web Developer',
+      siteName: 'Francis Ian — WordPress Developer',
     },
   },
 
@@ -54,19 +54,19 @@ export default defineNuxtConfig({
         lang: 'en',
         class: 'dark',
       },
-      titleTemplate: '%s | Full Stack Web Developer',
+      titleTemplate: '%s | WordPress Developer',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'theme-color', content: '#0b0b10' },
+        { name: 'theme-color', content: '#0f172a' },
         { name: 'format-detection', content: 'telephone=no' },
         {
           name: 'description',
           content:
-            'Portfolio of a Full Stack Web Developer specialising in Nuxt, Vue, Laravel, PHP, WordPress and Docker.',
+            'Portfolio of Francis Ian, a WordPress developer specialising in custom themes, plugins, WooCommerce stores, migrations and performance optimization.',
         },
         { name: 'og:type', content: 'website' },
-        { name: 'og:site_name', content: 'Full Stack Web Developer Portfolio' },
+        { name: 'og:site_name', content: 'WordPress Developer Portfolio' },
         { name: 'twitter:card', content: 'summary_large_image' },
       ],
       link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
@@ -85,19 +85,6 @@ export default defineNuxtConfig({
   sitemap: {
     enabled: true,
     autoLastmod: true,
-    urls: async () => {
-      const backendUrl = process.env.NUXT_BACKEND_URL || 'http://localhost:8000'
-      try {
-        const response = await $fetch<{ data: { slug: string }[] }>(`${backendUrl}/api/v1/projects`)
-        return response.data.map((project) => ({
-          loc: `/projects/${project.slug}`,
-          changefreq: 'monthly',
-          priority: 0.7,
-        }))
-      } catch {
-        return []
-      }
-    },
   },
 
   robots: {
@@ -106,9 +93,6 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    // Dynamic SSR keeps data fresh during local development.
-    // For a fully static site, run `nuxt generate` with the backend up.
-    '/projects/**': { swr: 3600 },
     '/images/**': { headers: { 'Cache-Control': 'public, max-age=31536000, immutable' } },
   },
 })

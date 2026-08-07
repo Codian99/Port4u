@@ -4,51 +4,44 @@ defineOptions({ name: 'ProjectCard' })
 defineProps<{
   project: {
     title: string
-    slug: string
     summary: string
+    description: string
     thumbnail: string
     technologies: string[]
     featured?: boolean
     github_url?: string | null
     live_url?: string | null
+    challenges?: string[]
+    features?: string[]
   }
 }>()
+
+const expanded = ref(false)
 </script>
 
 <template>
   <article class="card-surface card-surface-hover group relative flex flex-col overflow-hidden shadow-card">
-    <NuxtLink
-      :to="`/projects/${project.slug}`"
-      class="focus-visible:outline-none"
-      aria-label="View project"
-    >
-      <span class="relative block aspect-video overflow-hidden bg-[color:var(--color-surface-2)]">
-        <img
-          :src="project.thumbnail"
-          :alt="`${project.title} thumbnail`"
-          class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-          loading="lazy"
-          decoding="async"
-        >
-        <span
-          class="absolute inset-0 bg-gradient-to-t from-[color:var(--color-surface)] via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-          aria-hidden="true"
-        />
-        <AppBadge v-if="project.featured" variant="accent" class="absolute left-3 top-3">
-          <Icon name="lucide:star" :size="12" aria-hidden="true" />
-          Featured
-        </AppBadge>
-      </span>
-    </NuxtLink>
+    <span class="relative block aspect-video overflow-hidden bg-[color:var(--color-surface-2)]">
+      <img
+        :src="project.thumbnail"
+        :alt="`${project.title} thumbnail`"
+        class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        loading="lazy"
+        decoding="async"
+      >
+      <span
+        class="absolute inset-0 bg-gradient-to-t from-[color:var(--color-surface)] via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        aria-hidden="true"
+      />
+      <AppBadge v-if="project.featured" variant="accent" class="absolute left-3 top-3">
+        <Icon name="lucide:star" :size="12" aria-hidden="true" />
+        Featured
+      </AppBadge>
+    </span>
 
     <div class="flex flex-1 flex-col gap-3 p-5">
       <h3 class="font-display text-lg font-semibold tracking-tight">
-        <NuxtLink
-          :to="`/projects/${project.slug}`"
-          class="link-underline transition-colors hover:text-blue-300"
-        >
-          {{ project.title }}
-        </NuxtLink>
+        {{ project.title }}
       </h3>
 
       <p class="text-sm leading-relaxed text-[color:var(--color-muted)]">
@@ -63,6 +56,47 @@ defineProps<{
           <AppBadge>+{{ project.technologies.length - 4 }}</AppBadge>
         </li>
       </ul>
+
+      <div
+        v-if="project.description || project.challenges?.length || project.features?.length"
+        v-show="expanded"
+        class="space-y-4 border-t border-[color:var(--color-border)] pt-4"
+      >
+        <p
+          v-if="project.description"
+          class="text-sm leading-relaxed text-[color:var(--color-muted)]"
+        >
+          {{ project.description }}
+        </p>
+
+        <div v-if="project.features?.length">
+          <p class="mb-2 text-xs font-semibold uppercase tracking-wider text-blue-300">Key features</p>
+          <ul class="space-y-1.5">
+            <li
+              v-for="feature in project.features"
+              :key="feature"
+              class="flex items-start gap-2 text-sm text-[color:var(--color-muted)]"
+            >
+              <Icon name="lucide:check" :size="14" class="mt-0.5 shrink-0 text-emerald-300" aria-hidden="true" />
+              {{ feature }}
+            </li>
+          </ul>
+        </div>
+
+        <div v-if="project.challenges?.length">
+          <p class="mb-2 text-xs font-semibold uppercase tracking-wider text-blue-300">Challenges</p>
+          <ul class="space-y-1.5">
+            <li
+              v-for="challenge in project.challenges"
+              :key="challenge"
+              class="flex items-start gap-2 text-sm text-[color:var(--color-muted)]"
+            >
+              <Icon name="lucide:zap" :size="14" class="mt-0.5 shrink-0 text-amber-300" aria-hidden="true" />
+              {{ challenge }}
+            </li>
+          </ul>
+        </div>
+      </div>
 
       <div class="mt-auto flex items-center justify-between gap-2 pt-3">
         <div class="flex items-center gap-2">
@@ -91,14 +125,19 @@ defineProps<{
           </AppButton>
         </div>
 
-        <NuxtLink
-          :to="`/projects/${project.slug}`"
+        <button
+          type="button"
           class="inline-flex items-center gap-1 text-sm font-medium text-blue-300 transition-colors hover:text-blue-200"
-          aria-label="View case study"
+          :aria-expanded="expanded ? 'true' : 'false'"
+          @click="expanded = !expanded"
         >
-          Details
-          <Icon name="lucide:arrow-up-right" :size="15" aria-hidden="true" />
-        </NuxtLink>
+          {{ expanded ? 'Hide' : 'Details' }}
+          <Icon
+            :name="expanded ? 'lucide:chevron-up' : 'lucide:chevron-down'"
+            :size="15"
+            aria-hidden="true"
+          />
+        </button>
       </div>
     </div>
   </article>

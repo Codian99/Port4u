@@ -8,11 +8,11 @@ const year = new Date().getFullYear()
 const { data: about } = await useAsyncData<AboutProfile>('layout-about', () => useApi().getAbout())
 
 const navLinks = [
-  { label: 'About', to: '/about' },
-  { label: 'Projects', to: '/projects' },
-  { label: 'Skills', to: '/skills' },
-  { label: 'Experience', to: '/experience' },
-  { label: 'Contact', to: '/contact' },
+  { label: 'About', to: '#about' },
+  { label: 'Projects', to: '#projects' },
+  { label: 'Skills', to: '#skills' },
+  { label: 'Experience', to: '#experience' },
+  { label: 'Contact', to: '#contact' },
 ]
 
 const email = computed(() => about.value?.email ?? 'francisian172@gmail.com')
@@ -66,12 +66,12 @@ const socials = computed(() => [
           </p>
           <ul class="space-y-2.5">
             <li v-for="link in navLinks" :key="link.to">
-              <NuxtLink
-                :to="link.to"
+              <a
+                :href="link.to"
                 class="text-sm text-[color:var(--color-muted)] transition-colors hover:text-white"
               >
                 {{ link.label }}
-              </NuxtLink>
+              </a>
             </li>
           </ul>
         </div>
