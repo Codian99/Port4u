@@ -17,7 +17,7 @@ const socials = [
       class="container-page flex flex-col items-center gap-6 py-10 md:flex-row md:justify-between"
     >
       <p class="text-sm text-[color:var(--color-muted)]">
-        © {{ year }} John Doe. All rights reserved.
+        © {{ year }} Francis Ian. All rights reserved.
       </p>
 
       <ul class="flex items-center gap-3" aria-label="Social links">

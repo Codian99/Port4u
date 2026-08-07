@@ -13,7 +13,7 @@ return [
     */
 
     'about' => [
-        'name' => env('PORTFOLIO_NAME', 'John Doe'),
+        'name' => env('PORTFOLIO_NAME', 'Francis Ian'),
         'title' => env('PORTFOLIO_TITLE', 'Full Stack Web Developer'),
         'tagline' => 'I craft fast, elegant and maintainable web experiences end to end.',
         'summary' => 'Full Stack Web Developer with a passion for building modern, scalable applications using Nuxt, Vue, Laravel and PHP. Experienced with WordPress, custom plugins, Docker-based deployments and REST APIs.',
