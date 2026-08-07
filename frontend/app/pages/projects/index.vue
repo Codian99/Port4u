@@ -28,14 +28,14 @@ const visibleProjects = computed(() => {
     />
 
     <section class="container-page pb-24">
-      <div v-reveal class="mb-10 flex flex-wrap items-center gap-3">
+      <div v-reveal class="mb-10 flex flex-wrap items-center gap-2">
         <button
           type="button"
-          class="rounded-lg px-4 py-2 text-sm font-medium transition-all"
+          class="rounded-full px-4 py-2 text-sm font-medium transition-all"
           :class="
             filter === 'all'
-              ? 'bg-gradient-to-r from-violet-500 to-indigo-500 text-white shadow-lg shadow-violet-500/25'
-              : 'border border-[color:var(--color-border)] text-[color:var(--color-muted)] hover:text-white'
+              ? 'bg-gradient-to-r from-violet-500 to-indigo-500 text-white shadow-glow-sm'
+              : 'border border-[color:var(--color-border-strong)] text-[color:var(--color-muted)] hover:border-violet-400/50 hover:text-white'
           "
           :aria-pressed="filter === 'all'"
           @click="filter = 'all'"
@@ -44,11 +44,11 @@ const visibleProjects = computed(() => {
         </button>
         <button
           type="button"
-          class="rounded-lg px-4 py-2 text-sm font-medium transition-all"
+          class="rounded-full px-4 py-2 text-sm font-medium transition-all"
           :class="
             filter === 'featured'
-              ? 'bg-gradient-to-r from-violet-500 to-indigo-500 text-white shadow-lg shadow-violet-500/25'
-              : 'border border-[color:var(--color-border)] text-[color:var(--color-muted)] hover:text-white'
+              ? 'bg-gradient-to-r from-violet-500 to-indigo-500 text-white shadow-glow-sm'
+              : 'border border-[color:var(--color-border-strong)] text-[color:var(--color-muted)] hover:border-violet-400/50 hover:text-white'
           "
           :aria-pressed="filter === 'featured'"
           @click="filter = 'featured'"

@@ -32,21 +32,21 @@ const props = withDefaults(defineProps<Props>(), {
 const emit = defineEmits<{ click: [event: MouseEvent] }>()
 
 const sizeClasses = {
-  sm: 'px-3.5 py-2 text-sm',
+  sm: 'px-4 py-2 text-sm',
   md: 'px-5 py-2.5 text-sm',
   lg: 'px-7 py-3.5 text-base',
 }
 
 const variantClasses = {
   primary:
-    'bg-gradient-to-r from-violet-500 to-indigo-500 text-white shadow-lg shadow-violet-500/25 hover:shadow-violet-500/40 hover:brightness-110',
+    'bg-gradient-to-r from-violet-500 to-indigo-500 text-white shadow-glow-sm hover:shadow-glow hover:brightness-110',
   outline:
-    'border border-[color:var(--color-border)] text-[color:var(--color-text)] hover:border-violet-400/60 hover:bg-violet-400/5',
+    'border border-[color:var(--color-border-strong)] text-[color:var(--color-text)] hover:border-violet-400/60 hover:bg-violet-400/[0.06]',
   ghost: 'text-[color:var(--color-muted)] hover:text-[color:var(--color-text)] hover:bg-white/5',
 }
 
 const base =
-  'inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-bg)] disabled:pointer-events-none disabled:opacity-50 active:scale-[0.98]'
+  'inline-flex items-center justify-center gap-2 rounded-xl font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-bg)] disabled:pointer-events-none disabled:opacity-50 active:scale-[0.98]'
 
 function onClick(event: MouseEvent) {
   if (props.disabled || props.loading) return

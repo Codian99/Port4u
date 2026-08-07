@@ -43,7 +43,7 @@ const publishedYear = computed(() => {
             <AppBadge v-if="publishedYear">{{ publishedYear }}</AppBadge>
           </div>
 
-          <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">
+          <h1 class="text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
             {{ project.title }}
           </h1>
 
@@ -78,7 +78,7 @@ const publishedYear = computed(() => {
       <section class="container-page pb-20">
         <!-- Gallery -->
         <div v-reveal class="grid gap-4 lg:grid-cols-3">
-          <div class="card-surface overflow-hidden lg:col-span-2">
+          <div class="card-surface overflow-hidden shadow-card lg:col-span-2">
             <img
               :src="activeImage"
               :alt="`${project.title} screenshot`"
@@ -121,7 +121,10 @@ const publishedYear = computed(() => {
           <!-- Description + details -->
           <div class="space-y-10 lg:col-span-3">
             <section v-reveal>
-              <h2 class="mb-4 font-display text-xl font-semibold">Overview</h2>
+              <h2 class="mb-4 flex items-center gap-3 font-display text-xl font-semibold tracking-tight">
+                <span class="h-4 w-1 rounded-full bg-gradient-to-b from-violet-400 to-cyan-400" aria-hidden="true" />
+                Overview
+              </h2>
               <div class="space-y-4 leading-relaxed text-[color:var(--color-muted)]">
                 <p v-for="paragraph in project.description.split(/\n\n+/)" :key="paragraph">
                   {{ paragraph }}
@@ -130,7 +133,10 @@ const publishedYear = computed(() => {
             </section>
 
             <section v-if="project.features.length" v-reveal>
-              <h2 class="mb-4 font-display text-xl font-semibold">Key Features</h2>
+              <h2 class="mb-4 flex items-center gap-3 font-display text-xl font-semibold tracking-tight">
+                <span class="h-4 w-1 rounded-full bg-gradient-to-b from-violet-400 to-cyan-400" aria-hidden="true" />
+                Key Features
+              </h2>
               <ul class="space-y-3">
                 <li
                   v-for="feature in project.features"
@@ -148,7 +154,10 @@ const publishedYear = computed(() => {
             </section>
 
             <section v-if="project.challenges.length" v-reveal>
-              <h2 class="mb-4 font-display text-xl font-semibold">Challenges Solved</h2>
+              <h2 class="mb-4 flex items-center gap-3 font-display text-xl font-semibold tracking-tight">
+                <span class="h-4 w-1 rounded-full bg-gradient-to-b from-violet-400 to-cyan-400" aria-hidden="true" />
+                Challenges Solved
+              </h2>
               <ul class="space-y-3">
                 <li
                   v-for="challenge in project.challenges"
@@ -169,7 +178,7 @@ const publishedYear = computed(() => {
 
           <!-- Sidebar -->
           <aside class="lg:col-span-2">
-            <div v-reveal class="card-surface space-y-6 p-6 lg:sticky lg:top-24">
+            <div v-reveal class="card-surface space-y-6 p-6 shadow-card lg:sticky lg:top-24">
               <div>
                 <h2 class="mb-3 font-display text-base font-semibold">Tech Stack</h2>
                 <ul class="flex flex-wrap gap-2">

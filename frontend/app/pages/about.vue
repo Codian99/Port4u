@@ -29,7 +29,7 @@ const stats = computed(() => [
 
     <section class="container-page grid gap-12 pb-20 lg:grid-cols-5">
       <div v-reveal class="lg:col-span-2">
-        <div class="card-surface relative overflow-hidden p-1">
+        <div class="card-surface relative overflow-hidden p-1.5 shadow-card">
           <div
             class="relative aspect-[4/5] overflow-hidden rounded-xl bg-[color:var(--color-surface-2)]"
           >
@@ -40,7 +40,7 @@ const stats = computed(() => [
             </div>
           </div>
           <div
-            class="absolute inset-x-0 bottom-4 mx-auto w-max rounded-full border border-white/10 bg-black/60 px-4 py-1.5 text-xs text-white backdrop-blur"
+            class="absolute inset-x-0 bottom-5 mx-auto w-max rounded-full border border-white/10 bg-black/60 px-4 py-1.5 text-xs text-white backdrop-blur"
           >
             {{ aboutInfo?.location }}
           </div>
@@ -49,7 +49,8 @@ const stats = computed(() => [
 
       <div class="lg:col-span-3">
         <div v-reveal class="space-y-5">
-          <h2 class="text-2xl font-bold sm:text-3xl">
+          <p class="eyebrow">About me</p>
+          <h2 class="text-2xl font-semibold tracking-tight sm:text-3xl">
             {{ aboutInfo?.tagline }}
           </h2>
           <p class="leading-relaxed text-[color:var(--color-muted)]">
@@ -63,7 +64,7 @@ const stats = computed(() => [
           </p>
         </div>
 
-        <ul v-reveal class="mt-8 space-y-3">
+        <ul v-reveal class="mt-8 grid gap-3 sm:grid-cols-2">
           <li
             v-for="highlight in aboutInfo?.highlights"
             :key="highlight"
@@ -79,9 +80,13 @@ const stats = computed(() => [
         </ul>
 
         <div v-reveal class="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
-          <div v-for="stat in stats" :key="stat.label" class="card-surface p-4 text-center">
+          <div
+            v-for="stat in stats"
+            :key="stat.label"
+            class="card-surface p-5 text-center shadow-card"
+          >
             <p class="font-display text-2xl font-bold text-gradient">{{ stat.value }}</p>
-            <p class="mt-1 text-xs text-[color:var(--color-muted)]">{{ stat.label }}</p>
+            <p class="mt-1.5 text-xs text-[color:var(--color-muted)]">{{ stat.label }}</p>
           </div>
         </div>
 

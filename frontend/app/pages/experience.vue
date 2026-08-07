@@ -56,8 +56,11 @@ function formatDate(date: string | null): string {
         </div>
 
         <aside class="space-y-6">
-          <div v-reveal class="card-surface p-6">
-            <h2 class="mb-4 font-display text-base font-semibold">At a glance</h2>
+          <div v-reveal class="card-surface p-6 shadow-card">
+            <h2 class="mb-4 flex items-center gap-2.5 font-display text-base font-semibold tracking-tight">
+              <Icon name="lucide:gauge" :size="17" class="text-violet-400" aria-hidden="true" />
+              At a glance
+            </h2>
             <ul class="space-y-3 text-sm text-[color:var(--color-muted)]">
               <li class="flex items-center gap-3">
                 <Icon
@@ -84,8 +87,11 @@ function formatDate(date: string | null): string {
             </ul>
           </div>
 
-          <div v-reveal class="card-surface p-6">
-            <h2 class="mb-4 font-display text-base font-semibold">Focus areas</h2>
+          <div v-reveal class="card-surface p-6 shadow-card">
+            <h2 class="mb-4 flex items-center gap-2.5 font-display text-base font-semibold tracking-tight">
+              <Icon name="lucide:target" :size="17" class="text-violet-400" aria-hidden="true" />
+              Focus areas
+            </h2>
             <ul class="flex flex-wrap gap-2">
               <li
                 v-for="tag in [

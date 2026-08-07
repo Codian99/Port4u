@@ -67,7 +67,7 @@ onMounted(() => {
       <span class="text-xs tabular-nums text-[color:var(--color-muted)]">{{ displayLevel }}%</span>
     </div>
     <div
-      class="h-2 w-full overflow-hidden rounded-full bg-white/[0.06]"
+      class="h-1.5 w-full overflow-hidden rounded-full bg-[color:var(--color-surface-2)] ring-1 ring-inset ring-white/5"
       role="progressbar"
       :aria-valuenow="level"
       aria-valuemin="0"

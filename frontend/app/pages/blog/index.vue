@@ -25,7 +25,7 @@ const posts = [] as { title: string; slug: string; excerpt: string; date: string
         </AppCard>
       </div>
 
-      <div v-else v-reveal class="card-surface flex flex-col items-center gap-4 p-12 text-center">
+      <div v-else v-reveal class="card-surface flex flex-col items-center gap-4 p-12 text-center shadow-card">
         <span
           class="flex h-14 w-14 items-center justify-center rounded-full bg-violet-500/10 text-violet-300"
         >

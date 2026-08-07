@@ -18,9 +18,7 @@ withDefaults(
     class="card-surface group relative overflow-hidden"
     :class="[
       padded ? 'p-6' : '',
-      hover
-        ? 'transition-all duration-300 hover:-translate-y-1 hover:border-violet-400/40 hover:shadow-xl hover:shadow-violet-500/10'
-        : '',
+      hover ? 'card-surface-hover shadow-card' : '',
     ]"
   >
     <slot />

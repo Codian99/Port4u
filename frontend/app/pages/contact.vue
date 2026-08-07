@@ -45,7 +45,7 @@ async function onSubmit() {
 }
 
 const inputClasses =
-  'w-full rounded-lg border border-[color:var(--color-border)] bg-white/[0.03] px-4 py-3 text-sm text-[color:var(--color-text)] placeholder:text-[color:var(--color-muted)] transition-colors focus:border-violet-400/60 focus:outline-none focus:ring-2 focus:ring-violet-400/30'
+  'w-full rounded-xl border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-4 py-3 text-sm text-[color:var(--color-text)] placeholder:text-[color:var(--color-muted)] transition-colors focus:border-violet-400/60 focus:outline-none focus:ring-2 focus:ring-violet-400/30'
 
 const socials = computed(() => [
   { name: 'GitHub', href: about.value?.social.github ?? '#', icon: 'lucide:github' },
@@ -65,7 +65,7 @@ const socials = computed(() => [
 
     <section class="container-page grid gap-10 pb-24 lg:grid-cols-5">
       <aside v-reveal class="space-y-6 lg:col-span-2">
-        <div class="card-surface space-y-6 p-6">
+        <div class="card-surface space-y-6 p-6 shadow-card">
           <div>
             <h2 class="font-display text-lg font-semibold">Contact details</h2>
             <p class="mt-2 text-sm leading-relaxed text-[color:var(--color-muted)]">
@@ -95,8 +95,8 @@ const socials = computed(() => [
           </p>
         </div>
 
-        <div class="card-surface p-6">
-          <h2 class="mb-4 font-display text-lg font-semibold">Elsewhere</h2>
+        <div class="card-surface p-6 shadow-card">
+          <h2 class="mb-4 font-display text-lg font-semibold tracking-tight">Elsewhere</h2>
           <ul class="space-y-3">
             <li v-for="social in socials" :key="social.name">
               <a
@@ -136,7 +136,7 @@ const socials = computed(() => [
 
         <form
           v-else
-          class="card-surface space-y-5 p-6 sm:p-8"
+          class="card-surface space-y-5 p-6 shadow-card sm:p-8"
           novalidate
           @submit.prevent="onSubmit"
         >

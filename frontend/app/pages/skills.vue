@@ -27,7 +27,8 @@ const totalSkills = computed(
     />
 
     <section class="container-page pb-24">
-      <p v-reveal class="mb-10 text-sm text-[color:var(--color-muted)]">
+      <p v-reveal class="mb-10 inline-flex items-center gap-2 rounded-full border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-4 py-1.5 text-sm text-[color:var(--color-muted)]">
+        <Icon name="lucide:layout-grid" :size="15" class="text-violet-400" aria-hidden="true" />
         {{ totalSkills }} technologies across {{ categories?.length ?? 0 }} categories
       </p>
 
@@ -35,10 +36,10 @@ const totalSkills = computed(
         v-for="(category, index) in categories"
         :key="category.slug"
         v-reveal="{ delay: index * 0.06 }"
-        class="mb-10"
+        class="mb-8"
       >
         <div
-          class="card-surface p-6 sm:p-8"
+          class="card-surface card-surface-hover p-6 sm:p-8"
           :class="activeCategory && activeCategory !== category.slug ? 'opacity-40' : ''"
           @mouseenter="activeCategory = category.slug"
           @mouseleave="activeCategory = null"
@@ -52,7 +53,9 @@ const totalSkills = computed(
               <Icon :name="category.icon ?? 'lucide:box'" :size="24" aria-hidden="true" />
             </span>
             <div>
-              <h2 class="font-display text-xl font-semibold sm:text-2xl">{{ category.name }}</h2>
+              <h2 class="font-display text-xl font-semibold tracking-tight sm:text-2xl">
+                {{ category.name }}
+              </h2>
               <p class="text-xs text-[color:var(--color-muted)]">
                 {{ category.skills.length }} skills
               </p>

@@ -16,7 +16,7 @@ defineProps<{
 </script>
 
 <template>
-  <article class="card-surface group relative flex flex-col overflow-hidden">
+  <article class="card-surface card-surface-hover group relative flex flex-col overflow-hidden shadow-card">
     <NuxtLink
       :to="`/projects/${project.slug}`"
       class="focus-visible:outline-none"
@@ -31,7 +31,7 @@ defineProps<{
           decoding="async"
         >
         <span
-          class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          class="absolute inset-0 bg-gradient-to-t from-[color:var(--color-surface)] via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
           aria-hidden="true"
         />
         <AppBadge v-if="project.featured" variant="accent" class="absolute left-3 top-3">
@@ -42,7 +42,7 @@ defineProps<{
     </NuxtLink>
 
     <div class="flex flex-1 flex-col gap-3 p-5">
-      <h3 class="font-display text-lg font-semibold">
+      <h3 class="font-display text-lg font-semibold tracking-tight">
         <NuxtLink
           :to="`/projects/${project.slug}`"
           class="link-underline transition-colors hover:text-violet-300"
@@ -64,30 +64,41 @@ defineProps<{
         </li>
       </ul>
 
-      <div class="mt-auto flex items-center gap-2 pt-2">
-        <AppButton
-          v-if="project.github_url"
-          :href="project.github_url"
-          variant="outline"
-          size="sm"
-          icon="lucide:github"
-          external
-          aria-label="View source code on GitHub"
+      <div class="mt-auto flex items-center justify-between gap-2 pt-3">
+        <div class="flex items-center gap-2">
+          <AppButton
+            v-if="project.github_url"
+            :href="project.github_url"
+            variant="outline"
+            size="sm"
+            icon="lucide:github"
+            external
+            aria-label="View source code on GitHub"
+          >
+            GitHub
+          </AppButton>
+          <AppButton
+            v-if="project.live_url"
+            :href="project.live_url"
+            variant="primary"
+            size="sm"
+            icon="lucide:external-link"
+            icon-right
+            external
+            aria-label="Open live demo"
+          >
+            Live Demo
+          </AppButton>
+        </div>
+
+        <NuxtLink
+          :to="`/projects/${project.slug}`"
+          class="inline-flex items-center gap-1 text-sm font-medium text-violet-300 transition-colors hover:text-violet-200"
+          aria-label="View case study"
         >
-          GitHub
-        </AppButton>
-        <AppButton
-          v-if="project.live_url"
-          :href="project.live_url"
-          variant="primary"
-          size="sm"
-          icon="lucide:external-link"
-          icon-right
-          external
-          aria-label="Open live demo"
-        >
-          Live Demo
-        </AppButton>
+          Details
+          <Icon name="lucide:arrow-up-right" :size="15" aria-hidden="true" />
+        </NuxtLink>
       </div>
     </div>
   </article>

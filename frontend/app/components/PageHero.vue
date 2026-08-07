@@ -17,15 +17,14 @@ withDefaults(
 <template>
   <section class="container-page relative pt-36 pb-16 sm:pt-44 sm:pb-20">
     <div v-reveal class="max-w-3xl">
-      <p
-        v-if="eyebrow"
-        class="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-violet-400"
-      >
-        {{ eyebrow }}
-      </p>
-      <h1 class="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+      <p v-if="eyebrow" class="eyebrow mb-5">{{ eyebrow }}</p>
+      <h1 class="text-4xl font-semibold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
         {{ title }}
       </h1>
+      <div
+        class="mt-6 h-px w-16 bg-gradient-to-r from-violet-400 to-cyan-400"
+        aria-hidden="true"
+      />
       <p
         v-if="description"
         class="mt-5 max-w-2xl text-base leading-relaxed text-[color:var(--color-muted)] sm:text-lg"
