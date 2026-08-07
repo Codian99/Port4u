@@ -97,7 +97,6 @@ onMounted(() => {
           </div>
 
           <div data-hero>
-            <p class="eyebrow mb-5">Hi, my name is</p>
             <h1 class="text-5xl font-semibold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
               {{ about?.name }}
             </h1>
