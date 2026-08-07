@@ -2,6 +2,42 @@
 
 All notable changes to the portfolio project.
 
+## [1.2.0] - 2026-08-07 — Single-page scroll navigation
+
+### Added
+- Scroll-spy in the navbar: the active tab highlights based on scroll position (`updateActiveSection`).
+- Inline "Details" toggle on project cards showing features + challenges, replacing the separate detail pages.
+- All sections (home, about, services, why, projects, skills, experience, contact) merged into a single homepage.
+
+### Changed
+- Navbar and footer links smooth-scroll to page anchors (`#home`, `#about`, `#projects`, `#skills`, `#experience`, `#contact`) instead of navigating to separate routes; the mobile drawer uses the same anchors.
+- `nuxt.config.ts`: removed dynamic sitemap entries and the `/projects/**` SWR route rule (detail pages no longer exist); title template and metadata WordPress-branded; `theme-color` updated to the new background (`#0f172a`).
+
+### Removed
+- Pages: `about`, `skills`, `experience`, `contact`, `projects/index`, `projects/[slug]`, `blog/index`.
+- Component: `PageHero`.
+
+### Fixed
+- Typecheck error in navbar scroll-spy (`sections[0]` possibly undefined under `noUncheckedIndexedAccess`).
+- Lint error in `ProjectCard` (unused `props` variable).
+
+### Verified
+- `npm run typecheck`, `npm run lint` and `npm run build` all pass.
+
+## [1.1.0] - 2026-08-07 — Rebrand to WordPress Developer
+
+### Added
+- "Services" and "Why Work With Me" sections on the homepage.
+- Six new project thumbnail SVGs for the WordPress portfolio.
+- Skill categories and bars covering WordPress, WooCommerce, Frontend & UI, Hosting & DevOps, Tools & Workflow.
+
+### Changed
+- Site identity: name "Francis Ian", role "WordPress Developer" (backend `config/portfolio.php` + `.env`, frontend metadata and title template).
+- Theme palette: violet/fuchsia/cyan → blue/indigo/emerald.
+- Backend `PortfolioSeeder`: 5 skill categories, 6 WordPress projects, WordPress-focused experience timeline, updated highlights and education.
+- SEO description, `og:`/`twitter:` meta and sitemap branding updated for a WordPress developer focus.
+- All page copy rewritten for the WordPress developer focus.
+
 ## [1.0.0] - 2026-08-06
 
 ### Added
