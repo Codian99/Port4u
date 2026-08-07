@@ -99,25 +99,6 @@ if (experience.value) profile.$patch({ experience: experience.value })
 if (allProjects.value) projects.$patch({ projects: allProjects.value })
 if (categories.value) skills.$patch({ categories: categories.value })
 
-const phrases = ['WordPress Theme & Plugin Expert']
-
-const { text: typedText } = useTypewriter(phrases)
-
-const heroRef = ref<HTMLElement | null>(null)
-const scrollHintRef = ref<HTMLElement | null>(null)
-
-const email = computed(() => about.value?.email ?? 'francisian172@gmail.com')
-
-const stackPreview = computed(() =>
-  (categories.value ?? [])
-    .flatMap((category) => category.skills.map((skill) => skill.name))
-    .slice(0, 8)
-)
-
-function scrollToProjects() {
-  document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })
-}
-
 const stats = computed(() => [
   { label: 'Years Experience', value: '5+' },
   { label: 'Websites Delivered', value: '50+' },
@@ -210,157 +191,11 @@ const socials = computed(() => [
   { name: 'Email', href: `mailto:${about.value?.email ?? ''}`, icon: 'lucide:mail' },
 ])
 
-onMounted(() => {
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  if (reduced) return
-
-  const { gsap } = useGsap()
-
-  const targets = heroRef.value?.querySelectorAll<HTMLElement>('[data-hero]')
-  if (targets?.length) {
-    gsap.fromTo(
-      targets,
-      { autoAlpha: 0, y: 30 },
-      {
-        autoAlpha: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.12,
-        ease: 'power3.out',
-        delay: 0.1,
-      }
-    )
-  }
-
-  if (scrollHintRef.value) {
-    gsap.to(scrollHintRef.value, {
-      y: 8,
-      duration: 1.2,
-      repeat: -1,
-      yoyo: true,
-      ease: 'sine.inOut',
-    })
-  }
-})
 </script>
 
 <template>
   <div>
-    <!-- Hero -->
-    <section
-      id="home"
-      ref="heroRef"
-      class="relative flex min-h-[92vh] items-center overflow-hidden"
-    >
-      <div class="container-page grid items-center gap-16 py-24 lg:grid-cols-12">
-        <div class="space-y-8 lg:col-span-7">
-          <div data-hero>
-            <span
-              class="inline-flex items-center gap-2.5 rounded-full border border-emerald-400/20 bg-emerald-500/[0.08] px-4 py-1.5 text-xs font-medium text-emerald-300"
-            >
-              <span class="relative flex h-2 w-2">
-                <span
-                  class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"
-                />
-                <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-              </span>
-              Available for work
-            </span>
-          </div>
-
-          <div data-hero>
-            <h1 class="text-5xl font-semibold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
-              {{ about?.name }}
-            </h1>
-          </div>
-
-          <div
-            data-hero
-            class="flex min-h-[3rem] items-center text-2xl font-semibold sm:text-3xl"
-          >
-            <span class="text-gradient">{{ typedText }}</span>
-            <span
-              class="ml-1.5 inline-block h-8 w-0.5 animate-blink bg-blue-400 sm:h-9"
-              aria-hidden="true"
-            />
-          </div>
-
-          <p
-            data-hero
-            class="max-w-xl text-base leading-relaxed text-[color:var(--color-muted)] sm:text-lg"
-          >
-            {{ about?.summary }}
-          </p>
-
-          <div data-hero class="flex flex-wrap items-center gap-3 pt-1">
-            <AppButton href="#projects" size="lg" icon="lucide:folder-git-2" icon-right>
-              View Projects
-            </AppButton>
-            <AppButton href="#contact" size="lg" variant="outline" icon="lucide:mail">
-              Get in Touch
-            </AppButton>
-          </div>
-        </div>
-
-        <!-- Terminal card -->
-        <div data-hero class="hidden lg:col-span-5 lg:block">
-          <div
-            class="card-surface overflow-hidden shadow-card"
-            role="img"
-            aria-label="Terminal showing Francis Ian's profile details"
-          >
-            <div class="flex items-center gap-2 border-b border-[color:var(--color-border)] px-5 py-3.5">
-              <span class="h-3 w-3 rounded-full bg-[#ff5f57]" />
-              <span class="h-3 w-3 rounded-full bg-[#febc2e]" />
-              <span class="h-3 w-3 rounded-full bg-[#28c840]" />
-              <span class="ml-3 font-mono text-xs text-[color:var(--color-muted)]">
-                ~/portfolio — zsh
-              </span>
-            </div>
-            <div class="space-y-3 px-6 py-6 font-mono text-sm leading-relaxed">
-              <p class="text-[color:var(--color-muted)]">
-                <span class="text-emerald-300">➜</span> ~
-                <span class="text-blue-300">whoami</span>
-              </p>
-              <p class="text-[color:var(--color-text)]">{{ about?.name ?? 'Francis Ian' }}</p>
-
-              <p class="text-[color:var(--color-muted)]">
-                <span class="text-emerald-300">➜</span> ~
-                <span class="text-blue-300">stack</span>
-              </p>
-              <p class="text-[color:var(--color-text)]">
-                {{ stackPreview.join(' · ') }}
-              </p>
-
-              <p class="text-[color:var(--color-muted)]">
-                <span class="text-emerald-300">➜</span> ~
-                <span class="text-blue-300">contact</span>
-              </p>
-              <p class="break-all text-emerald-300 underline decoration-emerald-400/40 underline-offset-4">
-                {{ email }}
-              </p>
-
-              <p class="pt-1 text-[color:var(--color-muted)]">
-                <span class="text-emerald-300">➜</span> ~
-                <span class="animate-blink text-[color:var(--color-text)]">▋</span>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div ref="scrollHintRef" class="absolute bottom-8 left-1/2 hidden -translate-x-1/2 sm:block">
-        <button
-          type="button"
-          class="flex flex-col items-center gap-2 text-[color:var(--color-muted)] transition-colors hover:text-white"
-          aria-label="Scroll to projects"
-          @click="scrollToProjects"
-        >
-          <span class="text-xs uppercase tracking-widest">Scroll</span>
-          <Icon name="lucide:chevron-down" :size="18" aria-hidden="true" />
-        </button>
-      </div>
-    </section>
+    <HeroSection :socials="socials" />
 
     <!-- About -->
     <section id="about" class="container-page scroll-mt-24 py-20">

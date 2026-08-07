@@ -6,9 +6,9 @@ const colorMode = useColorMode()
 const sections = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
-  { id: 'projects', label: 'Projects' },
   { id: 'skills', label: 'Skills' },
-  { id: 'experience', label: 'Experience' },
+  { id: 'services', label: 'Services' },
+  { id: 'projects', label: 'Projects' },
   { id: 'contact', label: 'Contact' },
 ]
 
@@ -123,11 +123,11 @@ function toggleTheme() {
           href="#contact"
           size="sm"
           class="hidden md:inline-flex"
-          icon="lucide:send"
+          icon="lucide:rocket"
           icon-right
           @click="onNavigate"
         >
-          Let's Talk
+          Hire Me
         </AppButton>
 
         <button
