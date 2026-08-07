@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import type { AboutProfile } from '~/types/portfolio'
+import { about } from '~/data/about'
 
 defineOptions({ name: 'AppFooter' })
 
 const year = new Date().getFullYear()
-
-const { data: about } = await useAsyncData<AboutProfile>('layout-about', () => useApi().getAbout())
 
 const navLinks = [
   { label: 'About', to: '#about' },
@@ -15,12 +13,12 @@ const navLinks = [
   { label: 'Contact', to: '#contact' },
 ]
 
-const email = computed(() => about.value?.email ?? 'francisian172@gmail.com')
+const email = computed(() => about.email)
 
 const socials = computed(() => [
-  { name: 'GitHub', href: about.value?.social.github ?? 'https://github.com/yourusername', icon: 'lucide:github' },
-  { name: 'LinkedIn', href: about.value?.social.linkedin ?? 'https://linkedin.com/in/yourusername', icon: 'lucide:linkedin' },
-  { name: 'Facebook', href: about.value?.social.facebook ?? 'https://facebook.com/yourusername', icon: 'lucide:facebook' },
+  { name: 'GitHub', href: about.social.github ?? 'https://github.com/yourusername', icon: 'lucide:github' },
+  { name: 'LinkedIn', href: about.social.linkedin ?? 'https://linkedin.com/in/yourusername', icon: 'lucide:linkedin' },
+  { name: 'Facebook', href: about.social.facebook ?? 'https://facebook.com/yourusername', icon: 'lucide:facebook' },
   { name: 'Email', href: `mailto:${email.value}`, icon: 'lucide:mail' },
 ])
 </script>

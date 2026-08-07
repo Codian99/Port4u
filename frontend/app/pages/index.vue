@@ -1,5 +1,8 @@
 <script setup lang="ts">
-import type { AboutProfile, ExperienceItem, Project, SkillCategory } from '~/types/portfolio'
+import { about as staticAbout } from '~/data/about'
+import { projects as staticProjects } from '~/data/projects'
+import { skillCategories as staticCategories } from '~/data/skills'
+import { experiences as staticExperiences } from '~/data/experience'
 
 useSeo({
   title: 'Home',
@@ -83,21 +86,14 @@ const reasons = [
   },
 ]
 
-const { data: about } = await useAsyncData<AboutProfile>('home-about', () => useApi().getAbout())
-const { data: allProjects } = await useAsyncData<Project[]>('home-projects', () =>
-  useApi().getProjects()
-)
-const { data: categories } = await useAsyncData<SkillCategory[]>('home-skills', () =>
-  useApi().getSkills()
-)
-const { data: experience } = await useAsyncData<ExperienceItem[]>('home-experience', () =>
-  useApi().getExperience()
-)
+const about = staticAbout
+const categories = staticCategories
+const experience = staticExperiences
 
-if (about.value) profile.$patch({ about: about.value })
-if (experience.value) profile.$patch({ experience: experience.value })
-if (allProjects.value) projects.$patch({ projects: allProjects.value })
-if (categories.value) skills.$patch({ categories: categories.value })
+profile.$patch({ about })
+profile.$patch({ experience })
+skills.$patch({ categories })
+projects.$patch({ projects: staticProjects })
 
 const stats = computed(() => [
   { label: 'Years Experience', value: '5+' },
@@ -108,17 +104,16 @@ const stats = computed(() => [
 
 const projectFilter = ref<'all' | 'featured'>('all')
 
-const visibleProjects = computed(() => {
-  if (!allProjects.value) return []
-  return projectFilter.value === 'featured'
-    ? allProjects.value.filter((p) => p.featured)
-    : allProjects.value
-})
+const visibleProjects = computed(() =>
+  projectFilter.value === 'featured'
+    ? staticProjects.filter((p) => p.featured)
+    : staticProjects
+)
 
 const activeCategory = ref<string | null>(null)
 
 const totalSkills = computed(
-  () => categories.value?.reduce((acc, cat) => acc + cat.skills.length, 0) ?? 0
+  () => categories.reduce((acc, cat) => acc + cat.skills.length, 0)
 )
 
 function formatDate(date: string | null): string {
@@ -130,7 +125,7 @@ function formatDate(date: string | null): string {
 }
 
 const timelineItems = computed(() =>
-  (experience.value ?? []).map((item) => ({
+  experience.map((item) => ({
     id: item.id,
     title: item.role,
     subtitle: item.company,
@@ -185,10 +180,10 @@ const inputClasses =
   'w-full rounded-xl border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-4 py-3 text-sm text-[color:var(--color-text)] placeholder:text-[color:var(--color-muted)] transition-colors focus:border-blue-400/60 focus:outline-none focus:ring-2 focus:ring-blue-400/30'
 
 const socials = computed(() => [
-  { name: 'GitHub', href: about.value?.social.github ?? '#', icon: 'lucide:github' },
-  { name: 'LinkedIn', href: about.value?.social.linkedin ?? '#', icon: 'lucide:linkedin' },
-  { name: 'Facebook', href: about.value?.social.facebook ?? '#', icon: 'lucide:facebook' },
-  { name: 'Email', href: `mailto:${about.value?.email ?? ''}`, icon: 'lucide:mail' },
+  { name: 'GitHub', href: about.social.github ?? '#', icon: 'lucide:github' },
+  { name: 'LinkedIn', href: about.social.linkedin ?? '#', icon: 'lucide:linkedin' },
+  { name: 'Facebook', href: about.social.facebook ?? '#', icon: 'lucide:facebook' },
+  { name: 'Email', href: `mailto:${about.email ?? ''}`, icon: 'lucide:mail' },
 ])
 
 </script>
@@ -382,7 +377,7 @@ const socials = computed(() => [
         </button>
       </div>
 
-      <div v-if="visibleProjects.length" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <div
           v-for="(project, index) in visibleProjects"
           :key="project.slug"
@@ -390,11 +385,6 @@ const socials = computed(() => [
         >
           <ProjectCard :project="project" />
         </div>
-      </div>
-
-      <div v-else class="py-20 text-center">
-        <AppSpinner :size="36" />
-        <p class="mt-4 text-sm text-[color:var(--color-muted)]">Loading projects…</p>
       </div>
     </section>
 
