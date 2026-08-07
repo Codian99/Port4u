@@ -23,19 +23,14 @@ if (about.value) profile.$patch({ about: about.value })
 if (featured.value) projects.$patch({ featured: featured.value })
 if (categories.value) skills.$patch({ categories: categories.value })
 
-const phrases = [
-  'Full Stack Web Developer',
-  'Laravel & PHP Specialist',
-  'Vue & Nuxt Enthusiast',
-  'WordPress Theme & Plugin Expert',
-]
+const phrases = ['WordPress Theme & Plugin Expert']
 
 const { text: typedText } = useTypewriter(phrases)
 
 const heroRef = ref<HTMLElement | null>(null)
 const scrollHintRef = ref<HTMLElement | null>(null)
 
-const email = computed(() => about.value?.email ?? 'hello@example.com')
+const email = computed(() => about.value?.email ?? 'francisian172@gmail.com')
 
 function scrollToProjects() {
   document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })

@@ -7,7 +7,7 @@ const socials = [
   { name: 'GitHub', href: 'https://github.com/yourusername', icon: 'lucide:github' },
   { name: 'LinkedIn', href: 'https://linkedin.com/in/yourusername', icon: 'lucide:linkedin' },
   { name: 'Facebook', href: 'https://facebook.com/yourusername', icon: 'lucide:facebook' },
-  { name: 'Email', href: 'mailto:hello@example.com', icon: 'lucide:mail' },
+  { name: 'Email', href: 'mailto:francisian172@gmail.com', icon: 'lucide:mail' },
 ]
 </script>
 
