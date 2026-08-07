@@ -61,7 +61,7 @@ onMounted(() => {
   <div class="w-full">
     <div class="mb-2 flex items-center justify-between gap-2">
       <span class="flex items-center gap-2 text-sm font-medium">
-        <Icon v-if="icon" :name="icon" :size="16" class="text-violet-400" aria-hidden="true" />
+        <Icon v-if="icon" :name="icon" :size="16" class="text-blue-400" aria-hidden="true" />
         {{ name }}
       </span>
       <span class="text-xs tabular-nums text-[color:var(--color-muted)]">{{ displayLevel }}%</span>
@@ -76,7 +76,7 @@ onMounted(() => {
     >
       <div
         ref="barRef"
-        class="h-full w-0 rounded-full bg-gradient-to-r from-violet-500 to-cyan-400"
+        class="h-full w-0 rounded-full bg-gradient-to-r from-blue-500 to-emerald-400"
       />
     </div>
   </div>

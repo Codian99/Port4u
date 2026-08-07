@@ -4,7 +4,7 @@ import type { Project } from '~/types/portfolio'
 useSeo({
   title: 'Projects',
   description:
-    'A selection of projects across WordPress development, Laravel APIs, Nuxt dashboards and Docker deployments.',
+    'A selection of projects across custom WordPress themes, plugins, WooCommerce stores, migrations and performance optimization.',
 })
 
 const { data: projects } = await useAsyncData<Project[]>('all-projects', () =>
@@ -24,7 +24,7 @@ const visibleProjects = computed(() => {
     <PageHero
       eyebrow="Portfolio"
       title="Projects & case studies"
-      description="A curated selection of work spanning WordPress, Laravel, Vue and infrastructure. Every project ships with source code and a live demo where available."
+      description="A curated selection of work spanning custom WordPress themes, plugins, WooCommerce stores, migrations and performance optimization. Every project ships with source code and a live demo where available."
     />
 
     <section class="container-page pb-24">
@@ -34,8 +34,8 @@ const visibleProjects = computed(() => {
           class="rounded-full px-4 py-2 text-sm font-medium transition-all"
           :class="
             filter === 'all'
-              ? 'bg-gradient-to-r from-violet-500 to-indigo-500 text-white shadow-glow-sm'
-              : 'border border-[color:var(--color-border-strong)] text-[color:var(--color-muted)] hover:border-violet-400/50 hover:text-white'
+              ? 'bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-glow-sm'
+              : 'border border-[color:var(--color-border-strong)] text-[color:var(--color-muted)] hover:border-blue-400/50 hover:text-white'
           "
           :aria-pressed="filter === 'all'"
           @click="filter = 'all'"
@@ -47,8 +47,8 @@ const visibleProjects = computed(() => {
           class="rounded-full px-4 py-2 text-sm font-medium transition-all"
           :class="
             filter === 'featured'
-              ? 'bg-gradient-to-r from-violet-500 to-indigo-500 text-white shadow-glow-sm'
-              : 'border border-[color:var(--color-border-strong)] text-[color:var(--color-muted)] hover:border-violet-400/50 hover:text-white'
+              ? 'bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-glow-sm'
+              : 'border border-[color:var(--color-border-strong)] text-[color:var(--color-muted)] hover:border-blue-400/50 hover:text-white'
           "
           :aria-pressed="filter === 'featured'"
           @click="filter = 'featured'"

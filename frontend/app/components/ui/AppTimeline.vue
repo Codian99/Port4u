@@ -32,10 +32,10 @@ withDefaults(
       class="relative"
     >
       <span
-        class="absolute -left-8 top-1.5 flex h-4 w-4 -translate-x-1/2 items-center justify-center rounded-full border border-violet-400 bg-[color:var(--color-bg)]"
+        class="absolute -left-8 top-1.5 flex h-4 w-4 -translate-x-1/2 items-center justify-center rounded-full border border-blue-400 bg-[color:var(--color-bg)]"
         aria-hidden="true"
       >
-        <span class="h-1.5 w-1.5 rounded-full bg-violet-400" />
+        <span class="h-1.5 w-1.5 rounded-full bg-blue-400" />
       </span>
 
       <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
@@ -54,7 +54,7 @@ withDefaults(
         <AppBadge v-if="item.current" variant="success">Current</AppBadge>
       </div>
 
-      <p v-if="item.subtitle" class="mt-0.5 text-sm font-medium text-violet-300">
+      <p v-if="item.subtitle" class="mt-0.5 text-sm font-medium text-blue-300">
         {{ item.subtitle }}
       </p>
 

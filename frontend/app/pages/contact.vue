@@ -45,7 +45,7 @@ async function onSubmit() {
 }
 
 const inputClasses =
-  'w-full rounded-xl border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-4 py-3 text-sm text-[color:var(--color-text)] placeholder:text-[color:var(--color-muted)] transition-colors focus:border-violet-400/60 focus:outline-none focus:ring-2 focus:ring-violet-400/30'
+  'w-full rounded-xl border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-4 py-3 text-sm text-[color:var(--color-text)] placeholder:text-[color:var(--color-muted)] transition-colors focus:border-blue-400/60 focus:outline-none focus:ring-2 focus:ring-blue-400/30'
 
 const socials = computed(() => [
   { name: 'GitHub', href: about.value?.social.github ?? '#', icon: 'lucide:github' },
@@ -60,7 +60,7 @@ const socials = computed(() => [
     <PageHero
       eyebrow="Contact"
       title="Let's work together"
-      description="Have a project, a role or just a question? Send a message — the form is wired to the Laravel backend and I'll get back to you."
+      description="Have a WordPress project, a role or just a question? Send a message — the form is wired to the Laravel backend and I'll get back to you."
     />
 
     <section class="container-page grid gap-10 pb-24 lg:grid-cols-5">
@@ -75,10 +75,10 @@ const socials = computed(() => [
 
           <a
             :href="`mailto:${about?.email}`"
-            class="flex items-center gap-3 text-sm transition-colors hover:text-violet-300"
+            class="flex items-center gap-3 text-sm transition-colors hover:text-blue-300"
           >
             <span
-              class="flex h-10 w-10 items-center justify-center rounded-lg bg-violet-500/10 text-violet-300"
+              class="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-500/10 text-blue-300"
             >
               <Icon name="lucide:mail" :size="18" aria-hidden="true" />
             </span>
@@ -87,7 +87,7 @@ const socials = computed(() => [
 
           <p class="flex items-center gap-3 text-sm text-[color:var(--color-muted)]">
             <span
-              class="flex h-10 w-10 items-center justify-center rounded-lg bg-violet-500/10 text-violet-300"
+              class="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-500/10 text-blue-300"
             >
               <Icon name="lucide:map-pin" :size="18" aria-hidden="true" />
             </span>

@@ -22,7 +22,7 @@ withDefaults(
         {{ title }}
       </h1>
       <div
-        class="mt-6 h-px w-16 bg-gradient-to-r from-violet-400 to-cyan-400"
+        class="mt-6 h-px w-16 bg-gradient-to-r from-blue-400 to-emerald-400"
         aria-hidden="true"
       />
       <p

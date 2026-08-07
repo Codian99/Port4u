@@ -97,10 +97,10 @@ const publishedYear = computed(() => {
               v-for="image in project.gallery"
               :key="image"
               type="button"
-              class="card-surface overflow-hidden transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400"
+              class="card-surface overflow-hidden transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
               :class="
                 activeImage === image
-                  ? 'border-violet-400/60 ring-1 ring-violet-400/40'
+                  ? 'border-blue-400/60 ring-1 ring-blue-400/40'
                   : 'opacity-60 hover:opacity-100'
               "
               :aria-label="`Show screenshot`"
@@ -122,7 +122,7 @@ const publishedYear = computed(() => {
           <div class="space-y-10 lg:col-span-3">
             <section v-reveal>
               <h2 class="mb-4 flex items-center gap-3 font-display text-xl font-semibold tracking-tight">
-                <span class="h-4 w-1 rounded-full bg-gradient-to-b from-violet-400 to-cyan-400" aria-hidden="true" />
+                <span class="h-4 w-1 rounded-full bg-gradient-to-b from-blue-400 to-emerald-400" aria-hidden="true" />
                 Overview
               </h2>
               <div class="space-y-4 leading-relaxed text-[color:var(--color-muted)]">
@@ -134,7 +134,7 @@ const publishedYear = computed(() => {
 
             <section v-if="project.features.length" v-reveal>
               <h2 class="mb-4 flex items-center gap-3 font-display text-xl font-semibold tracking-tight">
-                <span class="h-4 w-1 rounded-full bg-gradient-to-b from-violet-400 to-cyan-400" aria-hidden="true" />
+                <span class="h-4 w-1 rounded-full bg-gradient-to-b from-blue-400 to-emerald-400" aria-hidden="true" />
                 Key Features
               </h2>
               <ul class="space-y-3">
@@ -155,7 +155,7 @@ const publishedYear = computed(() => {
 
             <section v-if="project.challenges.length" v-reveal>
               <h2 class="mb-4 flex items-center gap-3 font-display text-xl font-semibold tracking-tight">
-                <span class="h-4 w-1 rounded-full bg-gradient-to-b from-violet-400 to-cyan-400" aria-hidden="true" />
+                <span class="h-4 w-1 rounded-full bg-gradient-to-b from-blue-400 to-emerald-400" aria-hidden="true" />
                 Challenges Solved
               </h2>
               <ul class="space-y-3">

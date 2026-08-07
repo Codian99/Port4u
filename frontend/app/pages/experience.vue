@@ -41,7 +41,7 @@ function formatDate(date: string | null): string {
     <PageHero
       eyebrow="Career"
       title="Professional experience"
-      description="Five years of building and shipping production software — from WordPress sites to full stack platforms."
+      description="Five years of designing, building and maintaining WordPress websites — from custom themes and plugins to WooCommerce stores and hosting management."
     />
 
     <section class="container-page pb-24">
@@ -58,7 +58,7 @@ function formatDate(date: string | null): string {
         <aside class="space-y-6">
           <div v-reveal class="card-surface p-6 shadow-card">
             <h2 class="mb-4 flex items-center gap-2.5 font-display text-base font-semibold tracking-tight">
-              <Icon name="lucide:gauge" :size="17" class="text-violet-400" aria-hidden="true" />
+              <Icon name="lucide:gauge" :size="17" class="text-blue-400" aria-hidden="true" />
               At a glance
             </h2>
             <ul class="space-y-3 text-sm text-[color:var(--color-muted)]">
@@ -66,20 +66,20 @@ function formatDate(date: string | null): string {
                 <Icon
                   name="lucide:calendar"
                   :size="16"
-                  class="text-violet-400"
+                  class="text-blue-400"
                   aria-hidden="true"
                 />
                 {{ experience?.length ?? 0 }} roles
               </li>
               <li class="flex items-center gap-3">
-                <Icon name="lucide:globe" :size="16" class="text-violet-400" aria-hidden="true" />
+                <Icon name="lucide:globe" :size="16" class="text-blue-400" aria-hidden="true" />
                 Remote-first
               </li>
               <li class="flex items-center gap-3">
                 <Icon
                   name="lucide:briefcase"
                   :size="16"
-                  class="text-violet-400"
+                  class="text-blue-400"
                   aria-hidden="true"
                 />
                 Full-time & freelance
@@ -89,17 +89,17 @@ function formatDate(date: string | null): string {
 
           <div v-reveal class="card-surface p-6 shadow-card">
             <h2 class="mb-4 flex items-center gap-2.5 font-display text-base font-semibold tracking-tight">
-              <Icon name="lucide:target" :size="17" class="text-violet-400" aria-hidden="true" />
+              <Icon name="lucide:target" :size="17" class="text-blue-400" aria-hidden="true" />
               Focus areas
             </h2>
             <ul class="flex flex-wrap gap-2">
               <li
                 v-for="tag in [
-                  'Web Development',
-                  'API Design',
+                  'WordPress',
+                  'Custom Themes',
+                  'Plugins',
+                  'WooCommerce',
                   'Performance',
-                  'Accessibility',
-                  'DevOps',
                 ]"
                 :key="tag"
               >

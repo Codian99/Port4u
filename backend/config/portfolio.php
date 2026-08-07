@@ -14,9 +14,9 @@ return [
 
     'about' => [
         'name' => env('PORTFOLIO_NAME', 'Francis Ian'),
-        'title' => env('PORTFOLIO_TITLE', 'Full Stack Web Developer'),
-        'tagline' => 'I craft fast, elegant and maintainable web experiences end to end.',
-        'summary' => 'Full Stack Web Developer with a passion for building modern, scalable applications using Nuxt, Vue, Laravel and PHP. Experienced with WordPress, custom plugins, Docker-based deployments and REST APIs.',
+        'title' => env('PORTFOLIO_TITLE', 'WordPress Developer'),
+        'tagline' => 'I design, build and maintain fast, secure WordPress websites that grow with your business.',
+        'summary' => 'WordPress Developer with hands-on experience building custom themes and plugins, WooCommerce stores, and performance optimizations for production websites. Experienced with migrations, hosting environments and troubleshooting across Linux servers.',
         'email' => env('PORTFOLIO_EMAIL', 'francisian172@gmail.com'),
         'location' => env('PORTFOLIO_LOCATION', 'Remote · Worldwide'),
         'avatar' => '/images/avatar.jpg',
@@ -28,10 +28,10 @@ return [
             'facebook' => env('PORTFOLIO_FACEBOOK', 'https://facebook.com/yourusername'),
         ],
         'highlights' => [
-            '5+ years building production web applications',
-            'Laravel API development and REST design',
             'WordPress theme & plugin development',
-            'Docker, Linux and Nginx deployments',
+            'Custom WooCommerce store development',
+            'Site migrations and performance optimization',
+            'Hosting and server management experience',
         ],
         'education' => [
             [
@@ -41,10 +41,10 @@ return [
                 'description' => 'Focused on software engineering, databases and web technologies.',
             ],
             [
-                'degree' => 'Full Stack Web Development Certification',
+                'degree' => 'WordPress Development Certification',
                 'school' => 'Online Bootcamp',
                 'period' => '2017 - 2018',
-                'description' => 'Intensive programme covering PHP, JavaScript, MySQL and modern frontend frameworks.',
+                'description' => 'Intensive programme covering PHP, WordPress APIs, custom theming and plugin architecture.',
             ],
         ],
     ],

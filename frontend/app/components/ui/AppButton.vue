@@ -39,14 +39,14 @@ const sizeClasses = {
 
 const variantClasses = {
   primary:
-    'bg-gradient-to-r from-violet-500 to-indigo-500 text-white shadow-glow-sm hover:shadow-glow hover:brightness-110',
+    'bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-glow-sm hover:shadow-glow hover:brightness-110',
   outline:
-    'border border-[color:var(--color-border-strong)] text-[color:var(--color-text)] hover:border-violet-400/60 hover:bg-violet-400/[0.06]',
+    'border border-[color:var(--color-border-strong)] text-[color:var(--color-text)] hover:border-blue-400/60 hover:bg-blue-400/[0.06]',
   ghost: 'text-[color:var(--color-muted)] hover:text-[color:var(--color-text)] hover:bg-white/5',
 }
 
 const base =
-  'inline-flex items-center justify-center gap-2 rounded-xl font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-bg)] disabled:pointer-events-none disabled:opacity-50 active:scale-[0.98]'
+  'inline-flex items-center justify-center gap-2 rounded-xl font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-bg)] disabled:pointer-events-none disabled:opacity-50 active:scale-[0.98]'
 
 function onClick(event: MouseEvent) {
   if (props.disabled || props.loading) return

@@ -23,8 +23,8 @@ export default <Partial<Config>>{
         mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Consolas', 'monospace'],
       },
       boxShadow: {
-        'glow-sm': '0 4px 18px -6px rgba(139, 92, 246, 0.45)',
-        glow: '0 10px 40px -10px rgba(139, 92, 246, 0.55)',
+        'glow-sm': '0 4px 18px -6px rgba(59, 130, 246, 0.45)',
+        glow: '0 10px 40px -10px rgba(59, 130, 246, 0.55)',
         card: '0 1px 2px rgba(0,0,0,0.35), 0 12px 32px -12px rgba(0,0,0,0.5)',
       },
       animation: {
@@ -58,7 +58,7 @@ export default <Partial<Config>>{
         },
       },
       backgroundImage: {
-        'radial-fade': 'radial-gradient(ellipse at top, rgba(139,92,246,0.14), transparent 62%)',
+        'radial-fade': 'radial-gradient(ellipse at top, rgba(59,130,246,0.14), transparent 62%)',
         grid: 'linear-gradient(to right, rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.035) 1px, transparent 1px)',
       },
       backgroundSize: {

@@ -32,7 +32,7 @@ const socials = computed(() => [
         <div class="md:col-span-5">
           <div class="flex items-center gap-3">
             <span
-              class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500 to-cyan-400 font-display text-sm font-bold text-white"
+              class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-emerald-400 font-display text-sm font-bold text-white"
             >
               FI
             </span>
@@ -42,8 +42,8 @@ const socials = computed(() => [
             </span>
           </div>
           <p class="mt-4 max-w-sm text-sm leading-relaxed text-[color:var(--color-muted)]">
-            Independent web developer building fast, accessible and maintainable products across
-            the full stack.
+            WordPress developer building fast, secure and maintainable websites — from custom themes
+            and plugins to WooCommerce stores and hosting.
           </p>
           <ul class="mt-6 flex items-center gap-3" aria-label="Social links">
             <li v-for="social in socials" :key="social.name">
@@ -51,7 +51,7 @@ const socials = computed(() => [
                 :href="social.href"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="flex h-10 w-10 items-center justify-center rounded-xl border border-[color:var(--color-border)] text-[color:var(--color-muted)] transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-400/50 hover:text-white hover:shadow-glow-sm"
+                class="flex h-10 w-10 items-center justify-center rounded-xl border border-[color:var(--color-border)] text-[color:var(--color-muted)] transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/50 hover:text-white hover:shadow-glow-sm"
                 :aria-label="`Visit ${social.name}`"
               >
                 <Icon :name="social.icon" :size="18" aria-hidden="true" />
@@ -61,7 +61,7 @@ const socials = computed(() => [
         </div>
 
         <div class="md:col-span-3">
-          <p class="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-violet-400">
+          <p class="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-blue-400">
             Navigate
           </p>
           <ul class="space-y-2.5">
@@ -77,7 +77,7 @@ const socials = computed(() => [
         </div>
 
         <div class="md:col-span-4">
-          <p class="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-violet-400">
+          <p class="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-blue-400">
             Get in touch
           </p>
           <ul class="space-y-3 text-sm">
@@ -86,7 +86,7 @@ const socials = computed(() => [
                 :href="`mailto:${email}`"
                 class="flex items-center gap-3 text-[color:var(--color-muted)] transition-colors hover:text-white"
               >
-                <Icon name="lucide:mail" :size="16" class="text-violet-400" aria-hidden="true" />
+                <Icon name="lucide:mail" :size="16" class="text-blue-400" aria-hidden="true" />
                 {{ email }}
               </a>
             </li>
@@ -94,7 +94,7 @@ const socials = computed(() => [
               v-if="about?.location"
               class="flex items-center gap-3 text-[color:var(--color-muted)]"
             >
-              <Icon name="lucide:map-pin" :size="16" class="text-violet-400" aria-hidden="true" />
+              <Icon name="lucide:map-pin" :size="16" class="text-blue-400" aria-hidden="true" />
               {{ about.location }}
             </li>
             <li class="flex items-center gap-3 text-[color:var(--color-muted)]">

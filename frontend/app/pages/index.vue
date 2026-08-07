@@ -4,12 +4,84 @@ import type { AboutProfile, Project, SkillCategory } from '~/types/portfolio'
 useSeo({
   title: 'Home',
   description:
-    'Portfolio of Francis Ian, a full stack web developer specialising in Nuxt, Vue, Laravel, PHP, WordPress and Docker-based deployments.',
+    'Portfolio of Francis Ian, a WordPress developer specialising in custom themes, plugins, WooCommerce stores, migrations and performance optimization.',
 })
 
 const profile = useProfileStore()
 const projects = useProjectStore()
 const skills = useSkillStore()
+
+const services = [
+  {
+    title: 'Custom WordPress Websites',
+    description:
+      'Lightweight custom themes with zero page-builder bloat, built mobile-first and optimised for Core Web Vitals.',
+    icon: 'lucide:layout-template',
+  },
+  {
+    title: 'Custom Plugin Development',
+    description:
+      'Bespoke plugins that extend WordPress exactly how your business needs, written in clean, maintainable code.',
+    icon: 'lucide:puzzle',
+  },
+  {
+    title: 'WooCommerce Development',
+    description:
+      'Online stores with custom product types, flexible shipping rules and a checkout that actually converts.',
+    icon: 'lucide:shopping-cart',
+  },
+  {
+    title: 'Website Migrations',
+    description:
+      'Zero-downtime moves between hosts with careful planning, a rollback plan and post-migration verification.',
+    icon: 'lucide:arrow-left-right',
+  },
+  {
+    title: 'Performance Optimization',
+    description:
+      'Faster load times and better Core Web Vitals through caching, asset optimisation and clean code.',
+    icon: 'lucide:gauge',
+  },
+  {
+    title: 'Hosting & Maintenance',
+    description:
+      'Reliable management of hosting, backups, security updates and monitoring so you can focus on content.',
+    icon: 'lucide:server',
+  },
+]
+
+const reasons = [
+  {
+    title: 'Clean, maintainable code',
+    description: 'Built on WordPress coding standards with proper escaping and validation throughout.',
+    icon: 'lucide:code-2',
+  },
+  {
+    title: 'Performance first',
+    description: 'Fast sites that score well on Core Web Vitals — even on budget shared hosting.',
+    icon: 'lucide:gauge',
+  },
+  {
+    title: 'Security aware',
+    description: 'Hardened setups, up-to-date dependencies and proactive monitoring of every site.',
+    icon: 'lucide:shield-check',
+  },
+  {
+    title: 'Troubleshooting expert',
+    description: 'Skilled at diagnosing and fixing broken or hacked sites quickly and reliably.',
+    icon: 'lucide:search-check',
+  },
+  {
+    title: 'Clear communication',
+    description: 'Plain-language updates and honest timelines from kick-off to launch.',
+    icon: 'lucide:message-square',
+  },
+  {
+    title: 'Reliable delivery',
+    description: 'Years of production experience means fewer surprises and dependable launches.',
+    icon: 'lucide:rocket',
+  },
+]
 
 const { data: about } = await useAsyncData<AboutProfile>('home-about', () => useApi().getAbout())
 const { data: featured } = await useAsyncData<Project[]>('home-featured', () =>
@@ -108,7 +180,7 @@ onMounted(() => {
           >
             <span class="text-gradient">{{ typedText }}</span>
             <span
-              class="ml-1.5 inline-block h-8 w-0.5 animate-blink bg-violet-400 sm:h-9"
+              class="ml-1.5 inline-block h-8 w-0.5 animate-blink bg-blue-400 sm:h-9"
               aria-hidden="true"
             />
           </div>
@@ -148,13 +220,13 @@ onMounted(() => {
             <div class="space-y-3 px-6 py-6 font-mono text-sm leading-relaxed">
               <p class="text-[color:var(--color-muted)]">
                 <span class="text-emerald-300">➜</span> ~
-                <span class="text-violet-300">whoami</span>
+                <span class="text-blue-300">whoami</span>
               </p>
               <p class="text-[color:var(--color-text)]">{{ about?.name ?? 'Francis Ian' }}</p>
 
               <p class="text-[color:var(--color-muted)]">
                 <span class="text-emerald-300">➜</span> ~
-                <span class="text-violet-300">stack</span>
+                <span class="text-blue-300">stack</span>
               </p>
               <p class="text-[color:var(--color-text)]">
                 {{ stackPreview.join(' · ') }}
@@ -162,9 +234,9 @@ onMounted(() => {
 
               <p class="text-[color:var(--color-muted)]">
                 <span class="text-emerald-300">➜</span> ~
-                <span class="text-violet-300">contact</span>
+                <span class="text-blue-300">contact</span>
               </p>
-              <p class="break-all text-cyan-300 underline decoration-cyan-400/40 underline-offset-4">
+              <p class="break-all text-emerald-300 underline decoration-emerald-400/40 underline-offset-4">
                 {{ email }}
               </p>
 
@@ -187,6 +259,29 @@ onMounted(() => {
           <span class="text-xs uppercase tracking-widest">Scroll</span>
           <Icon name="lucide:chevron-down" :size="18" aria-hidden="true" />
         </button>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="container-page py-20">
+      <AppSectionTitle
+        eyebrow="What I Do"
+        title="WordPress Services"
+        description="Everything you need to build, grow and maintain a WordPress website — from a single plugin to a full store."
+      />
+
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div v-for="(service, index) in services" :key="service.title" v-reveal="{ delay: index * 0.08 }">
+          <AppCard hover class="h-full">
+            <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500/15 to-emerald-500/10 text-blue-300">
+              <Icon :name="service.icon" :size="20" aria-hidden="true" />
+            </div>
+            <h3 class="font-display text-base font-semibold tracking-tight">{{ service.title }}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-[color:var(--color-muted)]">
+              {{ service.description }}
+            </p>
+          </AppCard>
+        </div>
       </div>
     </section>
 
@@ -215,7 +310,7 @@ onMounted(() => {
       <AppSectionTitle
         eyebrow="Capabilities"
         title="Technologies I Work With"
-        description="A snapshot of the stack I use daily — from design systems to deployment pipelines."
+        description="From WordPress core and custom plugins to hosting, security and performance — the toolkit behind every project."
       />
 
       <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -227,7 +322,7 @@ onMounted(() => {
           <AppCard hover>
             <div class="mb-4 flex items-center gap-3">
               <span
-                class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500/15 to-cyan-500/10 text-violet-300"
+                class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500/15 to-emerald-500/10 text-blue-300"
               >
                 <Icon :name="category.icon ?? 'lucide:box'" :size="20" aria-hidden="true" />
               </span>
@@ -245,25 +340,54 @@ onMounted(() => {
       </div>
     </section>
 
+    <!-- Why work with me -->
+    <section class="container-page py-20">
+      <AppSectionTitle
+        eyebrow="Why Choose Me"
+        title="Why Work With Me"
+        description="More than a developer — a partner who cares about your website working well long after launch."
+      />
+
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div v-for="(reason, index) in reasons" :key="reason.title" v-reveal="{ delay: index * 0.08 }">
+          <AppCard hover class="h-full">
+            <div class="flex items-start gap-4">
+              <span
+                class="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500/15 to-emerald-500/10 text-blue-300"
+              >
+                <Icon :name="reason.icon" :size="20" aria-hidden="true" />
+              </span>
+              <div>
+                <h3 class="font-display text-base font-semibold tracking-tight">{{ reason.title }}</h3>
+                <p class="mt-1.5 text-sm leading-relaxed text-[color:var(--color-muted)]">
+                  {{ reason.description }}
+                </p>
+              </div>
+            </div>
+          </AppCard>
+        </div>
+      </div>
+    </section>
+
     <!-- CTA -->
     <section class="container-page pb-24 pt-8">
       <div v-reveal class="card-surface relative overflow-hidden p-10 text-center sm:p-14">
         <div
-          class="absolute inset-0 bg-gradient-to-br from-violet-600/[0.12] via-transparent to-cyan-500/[0.08]"
+          class="absolute inset-0 bg-gradient-to-br from-blue-600/[0.12] via-transparent to-emerald-500/[0.08]"
           aria-hidden="true"
         />
         <div
-          class="absolute -left-20 -top-20 h-64 w-64 rounded-full bg-violet-600/10 blur-[100px]"
+          class="absolute -left-20 -top-20 h-64 w-64 rounded-full bg-blue-600/10 blur-[100px]"
           aria-hidden="true"
         />
         <div class="relative">
           <p class="eyebrow mb-4 justify-center">Let's connect</p>
           <h2 class="text-3xl font-semibold tracking-tight sm:text-4xl">
-            Have a project in mind?
+            Have a WordPress project in mind?
           </h2>
           <p class="mx-auto mt-4 max-w-xl text-base text-[color:var(--color-muted)]">
-            I'm always open to discussing new opportunities, freelance work or exciting
-            collaborations.
+            From custom themes and plugins to WooCommerce and migrations — let's build something
+            that works great and grows with you.
           </p>
           <div class="mt-8 flex flex-wrap justify-center gap-3">
             <AppButton :href="`mailto:${email}`" size="lg" icon="lucide:mail">

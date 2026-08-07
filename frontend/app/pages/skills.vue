@@ -4,7 +4,7 @@ import type { SkillCategory } from '~/types/portfolio'
 useSeo({
   title: 'Skills',
   description:
-    'My technical skills across frontend, backend, database, DevOps, CMS and developer tools.',
+    'My technical skills across WordPress, WooCommerce, frontend, hosting and developer tools.',
 })
 
 const { data: categories } = await useAsyncData<SkillCategory[]>('skills-page', () =>
@@ -22,13 +22,13 @@ const totalSkills = computed(
   <div>
     <PageHero
       eyebrow="Skills"
-      title="A toolkit for the full stack"
-      description="Six focus areas covering everything from pixel-perfect frontends to containerised deployments. Hover a category to focus on it."
+      title="A WordPress toolkit built on PHP"
+      description="Five focus areas covering WordPress core, WooCommerce, frontend, hosting and developer tooling. Hover a category to focus on it."
     />
 
     <section class="container-page pb-24">
       <p v-reveal class="mb-10 inline-flex items-center gap-2 rounded-full border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-4 py-1.5 text-sm text-[color:var(--color-muted)]">
-        <Icon name="lucide:layout-grid" :size="15" class="text-violet-400" aria-hidden="true" />
+        <Icon name="lucide:layout-grid" :size="15" class="text-blue-400" aria-hidden="true" />
         {{ totalSkills }} technologies across {{ categories?.length ?? 0 }} categories
       </p>
 
@@ -48,7 +48,7 @@ const totalSkills = computed(
         >
           <div class="mb-6 flex items-center gap-4">
             <span
-              class="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500/15 to-cyan-500/10 text-violet-300"
+              class="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500/15 to-emerald-500/10 text-blue-300"
             >
               <Icon :name="category.icon ?? 'lucide:box'" :size="24" aria-hidden="true" />
             </span>

@@ -63,7 +63,7 @@ function toggleTheme() {
         @click="closeMenu"
       >
         <span
-          class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500 to-cyan-400 font-display text-sm font-bold text-white shadow-glow-sm transition-transform duration-300 group-hover:scale-105"
+          class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-emerald-400 font-display text-sm font-bold text-white shadow-glow-sm transition-transform duration-300 group-hover:scale-105"
         >
           FI
         </span>
@@ -86,7 +86,7 @@ function toggleTheme() {
           >
             {{ link.label }}
             <span
-              class="absolute inset-x-3.5 -bottom-0.5 h-px bg-gradient-to-r from-violet-400 to-cyan-400 transition-transform duration-300"
+              class="absolute inset-x-3.5 -bottom-0.5 h-px bg-gradient-to-r from-blue-400 to-emerald-400 transition-transform duration-300"
               :class="isActive(link) ? 'scale-x-100' : 'scale-x-0'"
               aria-hidden="true"
             />
@@ -133,7 +133,7 @@ function toggleTheme() {
   </header>
 
   <AppDrawer :open="mobileOpen" title="Menu" position="right" @close="closeMenu">
-    <p class="mb-4 px-1 text-xs font-semibold uppercase tracking-[0.2em] text-violet-400">
+    <p class="mb-4 px-1 text-xs font-semibold uppercase tracking-[0.2em] text-blue-400">
       Navigation
     </p>
     <ul class="space-y-1">
@@ -143,7 +143,7 @@ function toggleTheme() {
           class="flex items-center justify-between rounded-xl px-3 py-2.5 text-sm font-medium transition-colors"
           :class="
             isActive(link)
-              ? 'bg-violet-500/10 text-white'
+              ? 'bg-blue-500/10 text-white'
               : 'text-[color:var(--color-muted)] hover:bg-white/5 hover:text-white'
           "
           @click="closeMenu"
@@ -153,7 +153,7 @@ function toggleTheme() {
             v-if="isActive(link)"
             name="lucide:check"
             :size="16"
-            class="text-violet-400"
+            class="text-blue-400"
             aria-hidden="true"
           />
         </NuxtLink>

@@ -7,15 +7,15 @@
 
 @layer base {
   :root {
-    --color-bg: #08080d;
-    --color-surface: #0f0f17;
-    --color-surface-2: #16161f;
-    --color-border: #1f1f2c;
-    --color-border-strong: #2a2a3d;
-    --color-text: #ededf4;
-    --color-muted: #9495ab;
-    --color-accent: #8b5cf6;
-    --color-accent-2: #22d3ee;
+    --color-bg: #0f172a;
+    --color-surface: #1e293b;
+    --color-surface-2: #24314a;
+    --color-border: #334155;
+    --color-border-strong: #475569;
+    --color-text: #f8fafc;
+    --color-muted: #94a3b8;
+    --color-accent: #3b82f6;
+    --color-accent-2: #6366f1;
   }
 
   html {
@@ -29,7 +29,7 @@
   }
 
   ::selection {
-    @apply bg-violet-500/40 text-white;
+    @apply bg-blue-500/40 text-white;
   }
 
   /* Custom scrollbar */
@@ -44,7 +44,7 @@
     @apply rounded-full bg-[color:var(--color-border-strong)];
   }
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-violet-500/60;
+    @apply bg-blue-500/60;
   }
 
   h1,
@@ -61,16 +61,16 @@
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-blue-400 via-indigo-400 to-emerald-400 bg-clip-text text-transparent;
   }
 
   /* Editorial eyebrow: accent diamond + uppercase label */
   .eyebrow {
-    @apply inline-flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.22em] text-violet-400;
+    @apply inline-flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.22em] text-blue-400;
   }
   .eyebrow::before {
     content: '';
-    @apply block h-1.5 w-1.5 rotate-45 rounded-[2px] bg-violet-400;
+    @apply block h-1.5 w-1.5 rotate-45 rounded-[2px] bg-blue-400;
   }
 
   .card-surface {
@@ -78,7 +78,7 @@
   }
 
   .card-surface-hover {
-    @apply transition-all duration-300 hover:-translate-y-1 hover:border-violet-400/40 hover:shadow-[0_8px_40px_-12px_rgba(139,92,246,0.35)];
+    @apply transition-all duration-300 hover:-translate-y-1 hover:border-blue-400/40 hover:shadow-[0_8px_40px_-12px_rgba(59,130,246,0.35)];
   }
 
   .link-underline {
@@ -86,7 +86,7 @@
   }
   .link-underline::after {
     content: '';
-    @apply absolute -bottom-0.5 left-0 h-px w-0 bg-gradient-to-r from-violet-400 to-cyan-400 transition-all duration-300;
+    @apply absolute -bottom-0.5 left-0 h-px w-0 bg-gradient-to-r from-blue-400 to-emerald-400 transition-all duration-300;
   }
   .link-underline:hover::after {
     @apply w-full;
@@ -103,7 +103,7 @@
 
   .glass {
     @apply border-b border-white/[0.06] backdrop-blur-xl;
-    background-color: rgba(8, 8, 13, 0.8);
+    background-color: rgba(15, 23, 42, 0.8);
   }
 
   /* Film-grain overlay for a premium, non-flat feel */

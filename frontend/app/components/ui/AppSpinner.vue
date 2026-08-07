@@ -17,7 +17,7 @@ withDefaults(
 
 <template>
   <svg
-    class="inline-block animate-spin text-violet-400"
+    class="inline-block animate-spin text-blue-400"
     :width="size"
     :height="size"
     viewBox="0 0 24 24"

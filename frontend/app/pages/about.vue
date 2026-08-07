@@ -13,8 +13,8 @@ const aboutInfo = computed(() => about.value)
 
 const stats = computed(() => [
   { label: 'Years Experience', value: '5+' },
-  { label: 'Projects Delivered', value: '40+' },
-  { label: 'Technologies', value: '20+' },
+  { label: 'Websites Delivered', value: '50+' },
+  { label: 'Themes & Plugins', value: '25+' },
   { label: 'Happy Clients', value: '25+' },
 ])
 </script>
@@ -23,8 +23,8 @@ const stats = computed(() => [
   <div>
     <PageHero
       eyebrow="About Me"
-      title="Turning ideas into polished, production-ready web applications."
-      description="I'm a Full Stack Web Developer who enjoys the entire journey — from a design mockup in Figma, through a database schema, to a fast, accessible interface deployed to production."
+      title="Turning ideas into fast, secure WordPress websites."
+      description="I'm a WordPress Developer who enjoys the entire journey — from a design mockup, through custom theme and plugin development, to a fast, secure website deployed and maintained in production."
     />
 
     <section class="container-page grid gap-12 pb-20 lg:grid-cols-5">
@@ -34,7 +34,7 @@ const stats = computed(() => [
             class="relative aspect-[4/5] overflow-hidden rounded-xl bg-[color:var(--color-surface-2)]"
           >
             <div
-              class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-violet-600/20 to-cyan-500/20"
+              class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blue-600/20 to-emerald-500/20"
             >
               <Icon name="lucide:user" :size="96" class="text-white/20" aria-hidden="true" />
             </div>
@@ -57,10 +57,10 @@ const stats = computed(() => [
             {{ aboutInfo?.summary }}
           </p>
           <p class="leading-relaxed text-[color:var(--color-muted)]">
-            On the frontend I build with Nuxt and Vue, crafting fluid interfaces with Tailwind CSS
-            and GSAP. On the backend I design REST APIs with Laravel, model data in MySQL and Redis,
-            and ship everything with Docker, Nginx and Linux. I also have deep WordPress experience
-            — custom themes, plugins and WooCommerce stores.
+            On the WordPress side I build custom themes and plugins in PHP, extend stores with
+            WooCommerce, and manage hosting, migrations and performance. On the frontend I craft
+            fast, responsive interfaces with modern CSS and JavaScript — and when needed, Vue and
+            Laravel for bigger builds.
           </p>
         </div>
 
@@ -71,7 +71,7 @@ const stats = computed(() => [
             class="flex items-start gap-3"
           >
             <span
-              class="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-violet-500/10 text-violet-300"
+              class="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-blue-500/10 text-blue-300"
             >
               <Icon name="lucide:check" :size="14" aria-hidden="true" />
             </span>

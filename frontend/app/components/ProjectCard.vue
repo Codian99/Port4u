@@ -45,7 +45,7 @@ defineProps<{
       <h3 class="font-display text-lg font-semibold tracking-tight">
         <NuxtLink
           :to="`/projects/${project.slug}`"
-          class="link-underline transition-colors hover:text-violet-300"
+          class="link-underline transition-colors hover:text-blue-300"
         >
           {{ project.title }}
         </NuxtLink>
@@ -93,7 +93,7 @@ defineProps<{
 
         <NuxtLink
           :to="`/projects/${project.slug}`"
-          class="inline-flex items-center gap-1 text-sm font-medium text-violet-300 transition-colors hover:text-violet-200"
+          class="inline-flex items-center gap-1 text-sm font-medium text-blue-300 transition-colors hover:text-blue-200"
           aria-label="View case study"
         >
           Details

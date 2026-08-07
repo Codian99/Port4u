@@ -28,7 +28,7 @@ withDefaults(defineProps<Props>(), {
       {{ title }}
     </h2>
     <div
-      class="mt-5 h-px w-14 bg-gradient-to-r from-violet-400 to-cyan-400"
+      class="mt-5 h-px w-14 bg-gradient-to-r from-blue-400 to-emerald-400"
       :class="align === 'center' ? 'mx-auto' : ''"
     />
     <p v-if="description" class="mt-4 text-base leading-relaxed text-[color:var(--color-muted)]">

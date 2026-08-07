@@ -2,7 +2,7 @@
 useSeo({
   title: 'Blog',
   description:
-    'Articles about web development, WordPress, Laravel and the modern JavaScript ecosystem.',
+    'Articles about WordPress, PHP, WooCommerce and building for the web.',
 })
 
 const posts = [] as { title: string; slug: string; excerpt: string; date: string; tags: string[] }[]
@@ -27,7 +27,7 @@ const posts = [] as { title: string; slug: string; excerpt: string; date: string
 
       <div v-else v-reveal class="card-surface flex flex-col items-center gap-4 p-12 text-center shadow-card">
         <span
-          class="flex h-14 w-14 items-center justify-center rounded-full bg-violet-500/10 text-violet-300"
+          class="flex h-14 w-14 items-center justify-center rounded-full bg-blue-500/10 text-blue-300"
         >
           <Icon name="lucide:file-text" :size="26" aria-hidden="true" />
         </span>

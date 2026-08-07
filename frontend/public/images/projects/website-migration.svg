@@ -5,18 +5,18 @@
       <stop offset="1" stop-color="#1e293b"/>
     </linearGradient>
     <linearGradient id="accent" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#10b981"/>
-      <stop offset="1" stop-color="#22d3ee"/>
+      <stop stop-color="#3b82f6"/>
+      <stop offset="1" stop-color="#6366f1"/>
     </linearGradient>
     <radialGradient id="glow" cx="0.5" cy="0.4" r="0.6">
-      <stop stop-color="#10b981" stop-opacity="0.35"/>
-      <stop offset="1" stop-color="#10b981" stop-opacity="0"/>
+      <stop stop-color="#3b82f6" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#3b82f6" stop-opacity="0"/>
     </radialGradient>
   </defs>
   <rect width="1600" height="900" fill="url(#bg)"/>
   <rect width="1600" height="900" fill="url(#glow)"/>
-  <circle cx="1370" cy="160" r="260" fill="#10b981" fill-opacity="0.12"/>
-  <circle cx="180" cy="780" r="220" fill="#22d3ee" fill-opacity="0.10"/>
+  <circle cx="1370" cy="160" r="260" fill="#3b82f6" fill-opacity="0.12"/>
+  <circle cx="180" cy="780" r="220" fill="#6366f1" fill-opacity="0.10"/>
   <g stroke="url(#accent)" stroke-opacity="0.14" stroke-width="1.5">
     <line x1="0" y1="225" x2="1600" y2="225"/>
     <line x1="0" y1="450" x2="1600" y2="450"/>
@@ -25,7 +25,7 @@
     <line x1="800" y1="0" x2="800" y2="900"/>
     <line x1="1200" y1="0" x2="1200" y2="900"/>
   </g>
-  <rect x="700" y="290" width="200" height="200" rx="40" stroke="url(#accent)" stroke-width="3" fill="#10b981" fill-opacity="0.08"/>
-  <text x="800" y="455" text-anchor="middle" fill="url(#accent)" font-family="Arial, sans-serif" font-size="110" font-weight="bold">S</text>
-  <text x="800" y="620" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28" letter-spacing="6">wordpress malware scanner</text>
+  <rect x="700" y="290" width="200" height="200" rx="40" stroke="url(#accent)" stroke-width="3" fill="#3b82f6" fill-opacity="0.08"/>
+  <text x="800" y="455" text-anchor="middle" fill="url(#accent)" font-family="Arial, sans-serif" font-size="110" font-weight="bold">M</text>
+  <text x="800" y="620" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="28" letter-spacing="6">website migration</text>
 </svg>
