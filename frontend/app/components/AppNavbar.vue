@@ -6,8 +6,9 @@ const colorMode = useColorMode()
 const sections = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
-  { id: 'skills', label: 'Skills' },
   { id: 'services', label: 'Services' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'experience', label: 'Experience' },
   { id: 'contact', label: 'Contact' },
 ]
 
@@ -27,9 +28,13 @@ function onScroll() {
 function updateActiveSection() {
   const marker = window.scrollY + window.innerHeight * 0.4
   let current = sections[0]?.id ?? 'home'
+  let deepest = -1
   for (const section of sections) {
     const el = document.getElementById(section.id)
-    if (el && el.offsetTop <= marker) current = section.id
+    if (el && el.offsetTop <= marker && el.offsetTop >= deepest) {
+      deepest = el.offsetTop
+      current = section.id
+    }
   }
   activeSection.value = current
 }
