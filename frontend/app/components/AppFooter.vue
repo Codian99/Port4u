@@ -7,7 +7,6 @@ const year = new Date().getFullYear()
 
 const navLinks = [
   { label: 'About', to: '#about' },
-  { label: 'Projects', to: '#projects' },
   { label: 'Skills', to: '#skills' },
   { label: 'Experience', to: '#experience' },
   { label: 'Contact', to: '#contact' },

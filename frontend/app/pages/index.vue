@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { about as staticAbout } from '~/data/about'
-import { projects as staticProjects } from '~/data/projects'
 import { skillCategories as staticCategories } from '~/data/skills'
 import { experiences as staticExperiences } from '~/data/experience'
 
@@ -11,7 +10,6 @@ useSeo({
 })
 
 const profile = useProfileStore()
-const projects = useProjectStore()
 const skills = useSkillStore()
 
 const services = [
@@ -93,7 +91,6 @@ const experience = staticExperiences
 profile.$patch({ about })
 profile.$patch({ experience })
 skills.$patch({ categories })
-projects.$patch({ projects: staticProjects })
 
 const stats = computed(() => [
   { label: 'Years Experience', value: '5+' },
@@ -101,14 +98,6 @@ const stats = computed(() => [
   { label: 'Themes & Plugins', value: '25+' },
   { label: 'Happy Clients', value: '25+' },
 ])
-
-const projectFilter = ref<'all' | 'featured'>('all')
-
-const visibleProjects = computed(() =>
-  projectFilter.value === 'featured'
-    ? staticProjects.filter((p) => p.featured)
-    : staticProjects
-)
 
 const activeCategory = ref<string | null>(null)
 
@@ -335,55 +324,6 @@ const socials = computed(() => [
               </div>
             </div>
           </AppCard>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects" class="container-page scroll-mt-24 py-20">
-      <AppSectionTitle
-        eyebrow="Selected Work"
-        title="Projects & case studies"
-        description="A curated selection of work spanning custom WordPress themes, plugins, WooCommerce stores, migrations and performance optimization."
-      />
-
-      <div v-reveal class="mb-10 flex flex-wrap items-center gap-2">
-        <button
-          type="button"
-          class="rounded-full px-4 py-2 text-sm font-medium transition-all"
-          :class="
-            projectFilter === 'all'
-              ? 'bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-glow-sm'
-              : 'border border-[color:var(--color-border-strong)] text-[color:var(--color-muted)] hover:border-blue-400/50 hover:text-white'
-          "
-          :aria-pressed="projectFilter === 'all'"
-          @click="projectFilter = 'all'"
-        >
-          All Projects
-        </button>
-        <button
-          type="button"
-          class="rounded-full px-4 py-2 text-sm font-medium transition-all"
-          :class="
-            projectFilter === 'featured'
-              ? 'bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-glow-sm'
-              : 'border border-[color:var(--color-border-strong)] text-[color:var(--color-muted)] hover:border-blue-400/50 hover:text-white'
-          "
-          :aria-pressed="projectFilter === 'featured'"
-          @click="projectFilter = 'featured'"
-        >
-          <Icon name="lucide:star" :size="15" class="mr-1.5 inline" aria-hidden="true" />
-          Featured
-        </button>
-      </div>
-
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <div
-          v-for="(project, index) in visibleProjects"
-          :key="project.slug"
-          v-reveal="{ delay: (index % 3) * 0.08 }"
-        >
-          <ProjectCard :project="project" />
         </div>
       </div>
     </section>

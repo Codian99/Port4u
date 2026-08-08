@@ -59,8 +59,8 @@ const particles = Array.from({ length: 16 }, () => ({
 
 const chartBars = [46, 68, 52, 82, 60, 74]
 
-function scrollToProjects() {
-  document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })
+function scrollToServices() {
+  document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })
 }
 
 interface HeroContext {
@@ -282,13 +282,13 @@ onBeforeUnmount(() => {
 
         <div data-hero-cta class="mt-9 flex flex-wrap items-center gap-4">
           <AppButton
-            href="#projects"
+            href="#services"
             size="lg"
             class="hero-cta"
-            icon="lucide:folder-git-2"
+            icon="lucide:layout-template"
             icon-right
           >
-            View My Projects
+            Explore My Services
           </AppButton>
           <AppButton
             href="#contact"
@@ -550,8 +550,8 @@ onBeforeUnmount(() => {
       <button
         type="button"
         class="group flex flex-col items-center gap-2 text-[color:var(--color-muted)] transition-colors hover:text-white"
-        aria-label="Scroll to projects"
-        @click="scrollToProjects"
+        aria-label="Scroll to services"
+        @click="scrollToServices"
       >
         <span class="text-[10px] uppercase tracking-[0.25em]">Scroll</span>
         <span class="flex h-9 w-5 items-start justify-center rounded-full border border-white/15 p-1">
