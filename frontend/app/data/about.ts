@@ -21,12 +21,7 @@ export const about: AboutProfile = {
     linkedin: 'https://linkedin.com/in/yourusername',
     facebook: 'https://facebook.com/yourusername',
   },
-  highlights: [
-    'WordPress theme & plugin development',
-    'Custom WooCommerce store development',
-    'Site migrations and performance optimization',
-    'Hosting and server management experience',
-  ],
+  highlights: [],
   education: [
     {
       degree: 'BSc Computer Science',

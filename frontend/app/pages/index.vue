@@ -92,13 +92,6 @@ profile.$patch({ about })
 profile.$patch({ experience })
 skills.$patch({ categories })
 
-const stats = computed(() => [
-  { label: 'Years Experience', value: '5+' },
-  { label: 'Websites Delivered', value: '50+' },
-  { label: 'Themes & Plugins', value: '25+' },
-  { label: 'Happy Clients', value: '25+' },
-])
-
 const activeCategory = ref<string | null>(null)
 
 const totalSkills = computed(
@@ -223,24 +216,6 @@ const socials = computed(() => [
               fast, responsive interfaces with modern CSS and JavaScript — and when needed, Vue and
               Laravel for bigger builds.
             </p>
-          </div>
-
-          <ul v-reveal class="mt-8 grid gap-3 sm:grid-cols-2">
-            <li v-for="highlight in about?.highlights" :key="highlight" class="flex items-start gap-3">
-              <span
-                class="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-blue-500/10 text-blue-300"
-              >
-                <Icon name="lucide:check" :size="14" aria-hidden="true" />
-              </span>
-              <span class="text-sm text-[color:var(--color-muted)]">{{ highlight }}</span>
-            </li>
-          </ul>
-
-          <div v-reveal class="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
-            <div v-for="stat in stats" :key="stat.label" class="card-surface p-5 text-center shadow-card">
-              <p class="font-display text-2xl font-bold text-gradient">{{ stat.value }}</p>
-              <p class="mt-1.5 text-xs text-[color:var(--color-muted)]">{{ stat.label }}</p>
-            </div>
           </div>
 
           <div v-reveal class="mt-10 flex flex-wrap gap-3">
