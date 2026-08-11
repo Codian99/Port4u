@@ -5,7 +5,7 @@ import type { AboutProfile } from '~/types/portfolio'
  * Mirrors the backend `config/portfolio.php` so the site works without a deployed API.
  */
 export const about: AboutProfile = {
-  name: 'Francis Ian',
+  name: 'Port4u',
   title: 'WordPress Developer',
   tagline:
     'I design, build and maintain fast, secure WordPress websites that grow with your business.',

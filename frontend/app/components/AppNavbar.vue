@@ -82,7 +82,7 @@ function toggleTheme() {
           FI
         </span>
         <span class="hidden font-display text-base font-semibold tracking-tight sm:inline">
-          Francis Ian
+          Port4u
           <span class="text-gradient">.</span>
         </span>
       </a>

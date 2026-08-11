@@ -13,7 +13,7 @@ return [
     */
 
     'about' => [
-        'name' => env('PORTFOLIO_NAME', 'Francis Ian'),
+        'name' => env('PORTFOLIO_NAME', 'Port4u'),
         'title' => env('PORTFOLIO_TITLE', 'WordPress Developer'),
         'tagline' => 'I design, build and maintain fast, secure WordPress websites that grow with your business.',
         'summary' => 'WordPress Developer with hands-on experience building custom themes and plugins, WooCommerce stores, and performance optimizations for production websites. Experienced with migrations, hosting environments and troubleshooting across Linux servers.',

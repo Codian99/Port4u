@@ -6,7 +6,7 @@ import { experiences as staticExperiences } from '~/data/experience'
 useSeo({
   title: 'Home',
   description:
-    'Portfolio of Francis Ian, a WordPress developer specialising in custom themes, plugins, WooCommerce stores, migrations and performance optimization.',
+    'Portfolio of Port4u, a WordPress developer specialising in custom themes, plugins, WooCommerce stores, migrations and performance optimization.',
 })
 
 const profile = useProfileStore()

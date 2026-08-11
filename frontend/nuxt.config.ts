@@ -31,7 +31,7 @@ export default defineNuxtConfig({
     public: {
       apiBase: process.env.NUXT_PUBLIC_API_BASE || '/api/v1',
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',
-      siteName: 'Francis Ian — WordPress Developer',
+      siteName: 'Port4U',
     },
   },
 
@@ -54,7 +54,7 @@ export default defineNuxtConfig({
         lang: 'en',
         class: 'dark',
       },
-      titleTemplate: '%s | WordPress Developer',
+      titleTemplate: '%s | Port4U',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -63,10 +63,10 @@ export default defineNuxtConfig({
         {
           name: 'description',
           content:
-            'Portfolio of Francis Ian, a WordPress developer specialising in custom themes, plugins, WooCommerce stores, migrations and performance optimization.',
+            'Portfolio of Port4u, a WordPress developer specialising in custom themes, plugins, WooCommerce stores, migrations and performance optimization.',
         },
         { name: 'og:type', content: 'website' },
-        { name: 'og:site_name', content: 'WordPress Developer Portfolio' },
+        { name: 'og:site_name', content: 'Port4U' },
         { name: 'twitter:card', content: 'summary_large_image' },
       ],
       link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],

@@ -34,7 +34,7 @@ const socials = computed(() => [
               FI
             </span>
             <span class="font-display text-base font-semibold tracking-tight">
-              Francis Ian
+              Port4u
               <span class="text-gradient">.</span>
             </span>
           </div>
@@ -111,7 +111,7 @@ const socials = computed(() => [
         class="flex flex-col items-center justify-between gap-3 border-t border-[color:var(--color-border)] py-6 sm:flex-row"
       >
         <p class="text-xs text-[color:var(--color-muted)]">
-          © {{ year }} Francis Ian. All rights reserved.
+          © {{ year }} Port4u. All rights reserved.
         </p>
       </div>
     </div>
