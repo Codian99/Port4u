@@ -113,9 +113,6 @@ const socials = computed(() => [
         <p class="text-xs text-[color:var(--color-muted)]">
           © {{ year }} Francis Ian. All rights reserved.
         </p>
-        <p class="text-xs text-[color:var(--color-muted)]">
-          Built with Nuxt 4 · Laravel 12 · Tailwind CSS
-        </p>
       </div>
     </div>
   </footer>
