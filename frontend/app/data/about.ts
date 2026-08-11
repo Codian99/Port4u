@@ -14,7 +14,7 @@ export const about: AboutProfile = {
   email: 'francisian172@gmail.com',
   location: 'Remote · Worldwide',
   avatar: '/images/avatar.jpg',
-  resume_url: '/files/Francis%20ian.png',
+  resume_url: '/files/Francis%20ian.pdf',
   availability: true,
   social: {
     github: 'https://github.com/yourusername',
