@@ -162,9 +162,11 @@ const inputClasses =
   'w-full rounded-xl border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-4 py-3 text-sm text-[color:var(--color-text)] placeholder:text-[color:var(--color-muted)] transition-colors focus:border-blue-400/60 focus:outline-none focus:ring-2 focus:ring-blue-400/30'
 
 const socials = computed(() => [
-  { name: 'GitHub', href: about.social.github ?? '#', icon: 'lucide:github' },
-  { name: 'LinkedIn', href: about.social.linkedin ?? '#', icon: 'lucide:linkedin' },
-  { name: 'Facebook', href: about.social.facebook ?? '#', icon: 'lucide:facebook' },
+  {
+    name: 'Indeed',
+    href: 'https://profile.indeed.com/?hl=en_PH&co=PH&from=gnav-viewjob',
+    icon: 'simple-icons:indeed',
+  },
   { name: 'Email', href: `mailto:${about.email ?? ''}`, icon: 'lucide:mail' },
 ])
 
