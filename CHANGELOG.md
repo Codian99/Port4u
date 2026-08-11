@@ -2,6 +2,40 @@
 
 All notable changes to the portfolio project.
 
+## [1.4.0] - 2026-08-07 — Static frontend content
+
+### Added
+- Static content modules under `frontend/app/data/`: `about.ts`, `projects.ts`, `skills.ts`, `experience.ts`, mirroring the backend-seeded data.
+- The About, Projects, Skills and Experience sections now render entirely from this static data — no deployed API required.
+
+### Changed
+- `pages/index.vue` and `AppFooter.vue` read from the static modules instead of `useApi()`.
+- Removed the loading spinner from the Projects section (data is always present).
+
+### Removed
+- Frontend API calls for about, projects, skills and experience (the contact form still posts to `/api/v1/contact`).
+
+### Verified
+- `npm run typecheck`, `npm run lint` and `npm run build` all pass.
+
+## [1.3.0] - 2026-08-07 — Premium hero redesign
+
+### Added
+- `HeroSection.vue`: two-column, mobile-first hero section.
+  - Left: "Welcome to My Portfolio" badge, availability pill, "Building High-Performance WordPress Solutions" heading with blue gradient, subtitle, "View My Projects"/"Contact Me" CTAs, four glass stat chips and social links.
+  - Right: glowing laptop mockup showing a WordPress dashboard, plus floating VS Code, Terminal (wp-cli) and cPanel glass windows and 12 floating tech cards (WordPress, PHP, WooCommerce, Elementor, WPBakery, Laravel, Docker, MySQL, REST API, Git, cPanel, Linux) with bundled brand logos.
+  - Background: grid overlay, animated gradient blobs, drifting particles and a pulsing blue glow.
+  - GSAP animations: staggered intro timeline, glow pulse, bouncing scroll indicator, scroll parallax (ScrollTrigger) and pointer parallax via `gsap.quickTo` with per-element `data-depth`. Fully disabled under `prefers-reduced-motion` and cleaned up on unmount.
+- Installed `@iconify-json/lucide`, `@iconify-json/simple-icons` and `@iconify-json/devicon` so all icons (including brand logos) are bundled at build time instead of fetched at runtime.
+- `main.css`: reduced-motion kill-switch for all CSS animations/transitions.
+
+### Changed
+- Navbar menu reordered to Home, About, Skills, Services, Projects, Contact; CTA relabeled "Hire Me".
+- Old inline hero (typewriter terminal card) replaced with `<HeroSection />`; related dead code removed.
+
+### Verified
+- `npm run typecheck`, `npm run lint` and `npm run build` all pass; production server smoke-tested (HTTP 200).
+
 ## [1.2.0] - 2026-08-07 — Single-page scroll navigation
 
 ### Added
