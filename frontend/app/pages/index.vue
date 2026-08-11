@@ -384,51 +384,49 @@ const socials = computed(() => [
         description="Have a WordPress project, a role or just a question? Reach out and I'll get back to you."
       />
 
-      <div class="grid gap-6 lg:grid-cols-2">
-        <aside v-reveal class="space-y-6">
-          <div class="card-surface space-y-6 p-6 shadow-card">
-            <div>
-              <h2 class="font-display text-lg font-semibold">Contact details</h2>
-              <p class="mt-2 text-sm leading-relaxed text-[color:var(--color-muted)]">
-                Prefer a quick chat or a direct email? Reach me anytime through the details below.
-              </p>
-            </div>
-
-            <a
-              :href="`tel:+63949523190`"
-              class="flex items-center gap-3 text-sm transition-colors hover:text-blue-300"
-            >
-              <span
-                class="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-500/10 text-blue-300"
-              >
-                <Icon name="lucide:phone" :size="18" aria-hidden="true" />
-              </span>
-              09949523190
-            </a>
-
-            <a
-              :href="`mailto:${about?.email}`"
-              class="flex items-center gap-3 text-sm transition-colors hover:text-blue-300"
-            >
-              <span
-                class="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-500/10 text-blue-300"
-              >
-                <Icon name="lucide:mail" :size="18" aria-hidden="true" />
-              </span>
-              {{ about?.email }}
-            </a>
-
-            <p class="flex items-center gap-3 text-sm text-[color:var(--color-muted)]">
-              <span
-                class="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-500/10 text-blue-300"
-              >
-                <Icon name="lucide:map-pin" :size="18" aria-hidden="true" />
-              </span>
-              {{ about?.location }}
+      <div class="mx-auto max-w-2xl">
+        <div v-reveal class="card-surface space-y-6 p-6 shadow-card sm:p-8">
+          <div>
+            <h2 class="font-display text-lg font-semibold">Contact details</h2>
+            <p class="mt-2 text-sm leading-relaxed text-[color:var(--color-muted)]">
+              Prefer a quick chat or a direct email? Reach me anytime through the details below.
             </p>
           </div>
 
-          <div class="card-surface p-6 shadow-card">
+          <a
+            :href="`tel:+63949523190`"
+            class="flex items-center gap-3 text-sm transition-colors hover:text-blue-300"
+          >
+            <span
+              class="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-500/10 text-blue-300"
+            >
+              <Icon name="lucide:phone" :size="18" aria-hidden="true" />
+            </span>
+            09949523190
+          </a>
+
+          <a
+            :href="`mailto:${about?.email}`"
+            class="flex items-center gap-3 text-sm transition-colors hover:text-blue-300"
+          >
+            <span
+              class="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-500/10 text-blue-300"
+            >
+              <Icon name="lucide:mail" :size="18" aria-hidden="true" />
+            </span>
+            {{ about?.email }}
+          </a>
+
+          <p class="flex items-center gap-3 text-sm text-[color:var(--color-muted)]">
+            <span
+              class="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-500/10 text-blue-300"
+            >
+              <Icon name="lucide:map-pin" :size="18" aria-hidden="true" />
+            </span>
+            {{ about?.location }}
+          </p>
+
+          <div class="border-t border-[color:var(--color-border)] pt-6">
             <h2 class="mb-4 font-display text-lg font-semibold tracking-tight">Elsewhere</h2>
             <ul class="space-y-3">
               <li v-for="social in socials" :key="social.name">
@@ -448,7 +446,7 @@ const socials = computed(() => [
               </li>
             </ul>
           </div>
-        </aside>
+        </div>
       </div>
     </section>
   </div>
