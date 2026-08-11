@@ -122,45 +122,6 @@ const timelineItems = computed(() =>
   }))
 )
 
-const form = reactive({
-  name: '',
-  email: '',
-  subject: '',
-  message: '',
-})
-
-const loading = ref(false)
-const success = ref(false)
-const serverErrors = ref<Record<string, string>>({})
-
-async function onSubmit() {
-  serverErrors.value = {}
-  loading.value = true
-
-  try {
-    await useApi().submitContact(form)
-    success.value = true
-    form.name = ''
-    form.email = ''
-    form.subject = ''
-    form.message = ''
-  } catch (error: unknown) {
-    const err = error as {
-      data?: { errors?: Record<string, string[]> }
-    }
-    const next: Record<string, string> = {}
-    for (const [key, messages] of Object.entries(err.data?.errors ?? {})) {
-      next[key] = messages[0] ?? ''
-    }
-    serverErrors.value = next
-  } finally {
-    loading.value = false
-  }
-}
-
-const inputClasses =
-  'w-full rounded-xl border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-4 py-3 text-sm text-[color:var(--color-text)] placeholder:text-[color:var(--color-muted)] transition-colors focus:border-blue-400/60 focus:outline-none focus:ring-2 focus:ring-blue-400/30'
-
 const socials = computed(() => [
   {
     name: 'Indeed',
@@ -420,18 +381,30 @@ const socials = computed(() => [
       <AppSectionTitle
         eyebrow="Contact"
         title="Let's work together"
-        description="Have a WordPress project, a role or just a question? Send a message and I'll get back to you."
+        description="Have a WordPress project, a role or just a question? Reach out and I'll get back to you."
       />
 
-      <div class="grid gap-10 lg:grid-cols-5">
-        <aside v-reveal class="space-y-6 lg:col-span-2">
+      <div class="grid gap-6 lg:grid-cols-2">
+        <aside v-reveal class="space-y-6">
           <div class="card-surface space-y-6 p-6 shadow-card">
             <div>
               <h2 class="font-display text-lg font-semibold">Contact details</h2>
               <p class="mt-2 text-sm leading-relaxed text-[color:var(--color-muted)]">
-                Prefer direct email? Reach me anytime at the address below.
+                Prefer a quick chat or a direct email? Reach me anytime through the details below.
               </p>
             </div>
+
+            <a
+              :href="`tel:+63949523190`"
+              class="flex items-center gap-3 text-sm transition-colors hover:text-blue-300"
+            >
+              <span
+                class="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-500/10 text-blue-300"
+              >
+                <Icon name="lucide:phone" :size="18" aria-hidden="true" />
+              </span>
+              09949523190
+            </a>
 
             <a
               :href="`mailto:${about?.email}`"
@@ -476,107 +449,6 @@ const socials = computed(() => [
             </ul>
           </div>
         </aside>
-
-        <div v-reveal class="lg:col-span-3">
-          <div
-            v-if="success"
-            class="card-surface flex flex-col items-center gap-4 border-emerald-400/30 p-10 text-center"
-          >
-            <span
-              class="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-300"
-            >
-              <Icon name="lucide:check-check" :size="28" aria-hidden="true" />
-            </span>
-            <h2 class="font-display text-xl font-semibold">Message sent!</h2>
-            <p class="max-w-md text-sm text-[color:var(--color-muted)]">
-              Thanks for reaching out. I'll get back to you as soon as possible.
-            </p>
-            <AppButton variant="outline" @click="success = false">Send another message</AppButton>
-          </div>
-
-          <form
-            v-else
-            class="card-surface space-y-5 p-6 shadow-card sm:p-8"
-            novalidate
-            @submit.prevent="onSubmit"
-          >
-            <div class="grid gap-5 sm:grid-cols-2">
-              <div>
-                <label for="contact-name" class="mb-2 block text-sm font-medium">Name</label>
-                <input
-                  id="contact-name"
-                  v-model="form.name"
-                  type="text"
-                  autocomplete="name"
-                  required
-                  :class="inputClasses"
-                  placeholder="Jane Doe"
-                >
-                <p v-if="serverErrors.name" class="mt-1.5 text-xs text-red-400">
-                  {{ serverErrors.name }}
-                </p>
-              </div>
-
-              <div>
-                <label for="contact-email" class="mb-2 block text-sm font-medium">Email</label>
-                <input
-                  id="contact-email"
-                  v-model="form.email"
-                  type="email"
-                  autocomplete="email"
-                  required
-                  :class="inputClasses"
-                  placeholder="jane@example.com"
-                >
-                <p v-if="serverErrors.email" class="mt-1.5 text-xs text-red-400">
-                  {{ serverErrors.email }}
-                </p>
-              </div>
-            </div>
-
-            <div>
-              <label for="contact-subject" class="mb-2 block text-sm font-medium">Subject</label>
-              <input
-                id="contact-subject"
-                v-model="form.subject"
-                type="text"
-                required
-                :class="inputClasses"
-                placeholder="Project inquiry"
-              >
-              <p v-if="serverErrors.subject" class="mt-1.5 text-xs text-red-400">
-                {{ serverErrors.subject }}
-              </p>
-            </div>
-
-            <div>
-              <label for="contact-message" class="mb-2 block text-sm font-medium">Message</label>
-              <textarea
-                id="contact-message"
-                v-model="form.message"
-                rows="5"
-                required
-                :class="`${inputClasses} resize-y`"
-                placeholder="Tell me about your project…"
-              />
-              <p v-if="serverErrors.message" class="mt-1.5 text-xs text-red-400">
-                {{ serverErrors.message }}
-              </p>
-            </div>
-
-            <AppButton
-              type="submit"
-              size="lg"
-              block
-              :loading="loading"
-              icon="lucide:send"
-              icon-right
-              aria-label="Send message"
-            >
-              {{ loading ? 'Sending…' : 'Send Message' }}
-            </AppButton>
-          </form>
-        </div>
       </div>
     </section>
   </div>
