@@ -20,7 +20,7 @@ return [
         'email' => env('PORTFOLIO_EMAIL', 'francisian172@gmail.com'),
         'location' => env('PORTFOLIO_LOCATION', 'Remote · Worldwide'),
         'avatar' => '/images/avatar.jpg',
-        'resume_url' => '/files/resume.pdf',
+        'resume_url' => '/files/Francis%20ian.png',
         'availability' => true,
         'social' => [
             'github' => env('PORTFOLIO_GITHUB', 'https://github.com/yourusername'),

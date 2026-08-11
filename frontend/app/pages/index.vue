@@ -184,27 +184,8 @@ const socials = computed(() => [
         description="A WordPress developer who cares about the details — from clean code to fast, secure production sites."
       />
 
-      <div class="grid gap-12 lg:grid-cols-5">
-        <div v-reveal class="lg:col-span-2">
-          <div class="card-surface relative overflow-hidden p-1.5 shadow-card">
-            <div
-              class="relative aspect-[4/5] overflow-hidden rounded-xl bg-[color:var(--color-surface-2)]"
-            >
-              <div
-                class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blue-600/20 to-emerald-500/20"
-              >
-                <Icon name="lucide:user" :size="96" class="text-white/20" aria-hidden="true" />
-              </div>
-            </div>
-            <div
-              class="absolute inset-x-0 bottom-5 mx-auto w-max rounded-full border border-white/10 bg-black/60 px-4 py-1.5 text-xs text-white backdrop-blur"
-            >
-              {{ about?.location }}
-            </div>
-          </div>
-        </div>
-
-        <div class="lg:col-span-3">
+      <div class="grid gap-12">
+        <div>
           <div v-reveal class="space-y-5">
             <h2 class="text-2xl font-semibold tracking-tight sm:text-3xl">
               {{ about?.tagline }}
@@ -221,7 +202,12 @@ const socials = computed(() => [
           </div>
 
           <div v-reveal class="mt-10 flex flex-wrap gap-3">
-            <AppButton href="/files/resume.pdf" variant="primary" icon="lucide:download" external>
+            <AppButton
+              :href="about?.resume_url || '/files/resume.pdf'"
+              variant="primary"
+              icon="lucide:download"
+              external
+            >
               Download Resume
             </AppButton>
             <AppButton href="#skills" variant="outline" icon="lucide:sparkles">
