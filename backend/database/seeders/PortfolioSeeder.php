@@ -275,6 +275,19 @@ class PortfolioSeeder extends Seeder
         $experiences = [
             [
                 'role' => 'WordPress Developer',
+                'company' => 'Pageone247',
+                'company_url' => 'https://www.pageone247.com/',
+                'location' => 'Remote',
+                'type' => 'full-time',
+                'description' => 'Developing and maintaining WordPress websites at Pageone247 — building custom themes and plugins, WooCommerce stores and performance optimisations for client projects.',
+                'technologies' => ['WordPress', 'WooCommerce', 'PHP', 'MySQL'],
+                'start_date' => '2025-01-01',
+                'end_date' => null,
+                'current' => true,
+                'sort_order' => 0,
+            ],
+            [
+                'role' => 'WordPress Developer',
                 'company' => 'Freelance',
                 'company_url' => null,
                 'location' => 'Remote',
@@ -284,7 +297,7 @@ class PortfolioSeeder extends Seeder
                 'start_date' => '2019-06-01',
                 'end_date' => '2020-12-31',
                 'current' => false,
-                'sort_order' => 0,
+                'sort_order' => 1,
             ],
             [
                 'role' => 'WordPress Support & Maintenance',
@@ -297,7 +310,7 @@ class PortfolioSeeder extends Seeder
                 'start_date' => '2018-01-01',
                 'end_date' => '2019-05-31',
                 'current' => false,
-                'sort_order' => 1,
+                'sort_order' => 2,
             ],
         ];
 
