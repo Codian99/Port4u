@@ -2,6 +2,30 @@
 
 All notable changes to the portfolio project.
 
+## [1.5.0] - 2026-08-15 — Bug fixes, light theme and content updates
+
+### Added
+- **Light theme**: full light palette (`html.light` CSS variables in `main.css`), a light `.glass` navbar variant and theme-adaptive hover/text colors across the navbar, footer, drawer, modal, buttons and badges. The navbar theme toggle now actually switches between dark and light.
+- **Backend entrypoint** (`docker/backend/entrypoint.sh`): generates and persists `APP_KEY` on first boot when the environment provides none, then caches config/routes, runs migrations and seeds. The backend image now uses this as its `ENTRYPOINT`.
+- **Experience**: "WordPress Developer at Pageone247" (`https://www.pageone247.com/`) since Jan 2025, marked "Current" — added to `frontend/app/data/experience.ts` and the backend `PortfolioSeeder`.
+
+### Changed
+- **Seeding is now first-boot only**: `DatabaseSeeder` creates the default admin only on an empty database, and `PortfolioSeeder` skips once projects exist. Container restarts no longer reset the admin password or shift seeded `published_at` dates; publish dates are now deterministic (fixed base date).
+- **Trusted proxies**: `bootstrap/app.php` now trusts the nginx proxy (`trustProxies(at: '*')`) so rate limiting and request logging see real client IPs instead of nginx's container IP.
+- **`backend/.env.example`**: `REDIS_CLIENT` fixed from `predis` to `phpredis` to match the PHP extension installed in the image.
+- **`nuxt.config.ts`**: devtools are now enabled only outside production builds.
+- **Error page**: the "Contact me" link now points to `/#contact` instead of the removed `/contact` route.
+- **Branding**: site icon and brand mark rebranded to "POR" — favicon, navbar and footer monograms and the OG image.
+- **Experience timeline**: removed the Acme Digital Agency (Senior WordPress Developer) and Brightbox Studio (WordPress Developer) roles from `frontend/app/data/experience.ts` and the backend `PortfolioSeeder` (kept in sync).
+
+### Fixed
+- `PortfolioApiTest` asserted 6 skill categories while the seeder creates 5 — now asserts 5 (the test was failing).
+- Theme toggle previously had no visual effect because only a dark palette was defined.
+
+### Verified
+- Backend: 9 PHPUnit tests pass.
+- Frontend: `npm run typecheck`, `npm run lint` and `npm run build` all pass.
+
 ## [1.4.0] - 2026-08-07 — Static frontend content
 
 ### Added
