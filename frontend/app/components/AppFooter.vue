@@ -29,9 +29,9 @@ const socials = computed(() => [
         <div class="md:col-span-5">
           <div class="flex items-center gap-3">
             <span
-              class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-emerald-400 font-display text-sm font-bold text-white"
+              class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-emerald-400 font-display text-[11px] font-bold text-white"
             >
-              FI
+              POR
             </span>
             <span class="font-display text-base font-semibold tracking-tight">
               Port4u

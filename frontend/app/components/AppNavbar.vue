@@ -77,9 +77,9 @@ function toggleTheme() {
         @click="onNavigate"
       >
         <span
-          class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-emerald-400 font-display text-sm font-bold text-white shadow-glow-sm transition-transform duration-300 group-hover:scale-105"
+          class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-emerald-400 font-display text-[11px] font-bold text-white shadow-glow-sm transition-transform duration-300 group-hover:scale-105"
         >
-          FI
+          POR
         </span>
         <span class="hidden font-display text-base font-semibold tracking-tight sm:inline">
           Port4u
