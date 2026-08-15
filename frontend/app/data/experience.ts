@@ -8,34 +8,6 @@ import type { ExperienceItem } from '~/types/portfolio'
 export const experiences: ExperienceItem[] = [
   {
     id: 1,
-    role: 'Senior WordPress Developer',
-    company: 'Acme Digital Agency',
-    company_url: 'https://example.com',
-    location: 'Remote',
-    type: 'full-time',
-    description:
-      'Leading WordPress projects for client websites. Building custom themes and plugins, running WooCommerce stores, and optimising performance and Core Web Vitals for production sites.',
-    technologies: ['WordPress', 'WooCommerce', 'PHP', 'MySQL'],
-    start_date: '2023-04-01',
-    end_date: null,
-    current: true,
-  },
-  {
-    id: 2,
-    role: 'WordPress Developer',
-    company: 'Brightbox Studio',
-    company_url: 'https://example.com',
-    location: 'Remote',
-    type: 'full-time',
-    description:
-      'Shipped marketing and e-commerce websites on WordPress for international brands. Built custom themes and WooCommerce plugins, performed site migrations, and managed hosting environments.',
-    technologies: ['WordPress', 'WooCommerce', 'PHP', 'cPanel'],
-    start_date: '2021-01-01',
-    end_date: '2023-03-31',
-    current: false,
-  },
-  {
-    id: 3,
     role: 'WordPress Developer',
     company: 'Freelance',
     company_url: null,
@@ -49,7 +21,7 @@ export const experiences: ExperienceItem[] = [
     current: false,
   },
   {
-    id: 4,
+    id: 2,
     role: 'WordPress Support & Maintenance',
     company: 'Freelance',
     company_url: null,

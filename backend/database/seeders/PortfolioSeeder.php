@@ -274,32 +274,6 @@ class PortfolioSeeder extends Seeder
     {
         $experiences = [
             [
-                'role' => 'Senior WordPress Developer',
-                'company' => 'Acme Digital Agency',
-                'company_url' => 'https://example.com',
-                'location' => 'Remote',
-                'type' => 'full-time',
-                'description' => 'Leading WordPress projects for client websites. Building custom themes and plugins, running WooCommerce stores, and optimising performance and Core Web Vitals for production sites.',
-                'technologies' => ['WordPress', 'WooCommerce', 'PHP', 'MySQL'],
-                'start_date' => '2023-04-01',
-                'end_date' => null,
-                'current' => true,
-                'sort_order' => 0,
-            ],
-            [
-                'role' => 'WordPress Developer',
-                'company' => 'Brightbox Studio',
-                'company_url' => 'https://example.com',
-                'location' => 'Remote',
-                'type' => 'full-time',
-                'description' => 'Shipped marketing and e-commerce websites on WordPress for international brands. Built custom themes and WooCommerce plugins, performed site migrations, and managed hosting environments.',
-                'technologies' => ['WordPress', 'WooCommerce', 'PHP', 'cPanel'],
-                'start_date' => '2021-01-01',
-                'end_date' => '2023-03-31',
-                'current' => false,
-                'sort_order' => 1,
-            ],
-            [
                 'role' => 'WordPress Developer',
                 'company' => 'Freelance',
                 'company_url' => null,
@@ -310,7 +284,7 @@ class PortfolioSeeder extends Seeder
                 'start_date' => '2019-06-01',
                 'end_date' => '2020-12-31',
                 'current' => false,
-                'sort_order' => 2,
+                'sort_order' => 0,
             ],
             [
                 'role' => 'WordPress Support & Maintenance',
@@ -323,7 +297,7 @@ class PortfolioSeeder extends Seeder
                 'start_date' => '2018-01-01',
                 'end_date' => '2019-05-31',
                 'current' => false,
-                'sort_order' => 3,
+                'sort_order' => 1,
             ],
         ];
 
