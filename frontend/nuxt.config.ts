@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   // SPA (client-side rendering) — no server-side rendering.
   ssr: false,
 
-  devtools: { enabled: true },
+  devtools: { enabled: process.env.NODE_ENV !== 'production' },
 
   modules: [
     '@nuxtjs/tailwindcss',

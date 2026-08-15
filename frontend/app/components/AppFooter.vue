@@ -48,7 +48,7 @@ const socials = computed(() => [
                 :href="social.href"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="flex h-10 w-10 items-center justify-center rounded-xl border border-[color:var(--color-border)] text-[color:var(--color-muted)] transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/50 hover:text-white hover:shadow-glow-sm"
+                class="flex h-10 w-10 items-center justify-center rounded-xl border border-[color:var(--color-border)] text-[color:var(--color-muted)] transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/50 hover:text-[color:var(--color-text)] hover:shadow-glow-sm"
                 :aria-label="`Visit ${social.name}`"
               >
                 <Icon :name="social.icon" :size="18" aria-hidden="true" />
@@ -65,7 +65,7 @@ const socials = computed(() => [
             <li v-for="link in navLinks" :key="link.to">
               <a
                 :href="link.to"
-                class="text-sm text-[color:var(--color-muted)] transition-colors hover:text-white"
+                class="text-sm text-[color:var(--color-muted)] transition-colors hover:text-[color:var(--color-text)]"
               >
                 {{ link.label }}
               </a>
@@ -81,7 +81,7 @@ const socials = computed(() => [
             <li>
               <a
                 :href="`mailto:${email}`"
-                class="flex items-center gap-3 text-[color:var(--color-muted)] transition-colors hover:text-white"
+                class="flex items-center gap-3 text-[color:var(--color-muted)] transition-colors hover:text-[color:var(--color-text)]"
               >
                 <Icon name="lucide:mail" :size="16" class="text-blue-400" aria-hidden="true" />
                 {{ email }}

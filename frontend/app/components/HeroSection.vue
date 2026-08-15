@@ -327,7 +327,7 @@ onBeforeUnmount(() => {
             target="_blank"
             rel="noopener noreferrer"
             :aria-label="social.name"
-            class="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-[color:var(--color-muted)] backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/50 hover:text-white hover:shadow-glow-sm"
+            class="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-[color:var(--color-muted)] backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/50 hover:text-[color:var(--color-text)] hover:shadow-glow-sm"
           >
             <Icon :name="social.icon" :size="17" aria-hidden="true" />
           </a>
@@ -549,7 +549,7 @@ onBeforeUnmount(() => {
     >
       <button
         type="button"
-        class="group flex flex-col items-center gap-2 text-[color:var(--color-muted)] transition-colors hover:text-white"
+        class="group flex flex-col items-center gap-2 text-[color:var(--color-muted)] transition-colors hover:text-[color:var(--color-text)]"
         aria-label="Scroll to services"
         @click="scrollToServices"
       >

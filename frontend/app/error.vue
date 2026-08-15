@@ -31,7 +31,7 @@ useSeo({
       </p>
       <div class="mt-8 flex justify-center gap-3">
         <AppButton to="/" variant="primary" icon="lucide:home">Back to home</AppButton>
-        <AppButton to="/contact" variant="outline" icon="lucide:mail">Contact me</AppButton>
+        <AppButton to="/#contact" variant="outline" icon="lucide:mail">Contact me</AppButton>
       </div>
     </div>
   </div>

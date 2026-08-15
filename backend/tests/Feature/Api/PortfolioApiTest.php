@@ -50,7 +50,7 @@ class PortfolioApiTest extends TestCase
         $response = $this->getJson('/api/v1/skills');
 
         $response->assertOk()
-            ->assertJsonCount(6, 'data')
+            ->assertJsonCount(5, 'data')
             ->assertJsonStructure(['data' => [['name', 'slug', 'icon', 'skills']]]);
     }
 

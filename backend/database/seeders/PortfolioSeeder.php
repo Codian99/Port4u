@@ -10,6 +10,7 @@ use App\Models\Experience;
 use App\Models\Project;
 use App\Models\Skill;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Carbon;
 
 class PortfolioSeeder extends Seeder
 {
@@ -18,6 +19,12 @@ class PortfolioSeeder extends Seeder
      */
     public function run(): void
     {
+        // Seed the portfolio content only on a fresh database so container
+        // restarts don't shift publish dates or reset edited rows.
+        if (Project::query()->exists()) {
+            return;
+        }
+
         $this->seedCategoriesAndSkills();
         $this->seedProjects();
         $this->seedExperience();
@@ -255,7 +262,7 @@ class PortfolioSeeder extends Seeder
                 'gallery' => $project['gallery'],
                 'challenges' => $project['challenges'],
                 'features' => $project['features'],
-                'published_at' => now()->subDays(count($projects) - $index),
+                'published_at' => Carbon::parse('2026-06-01')->subDays($index),
             ]);
         }
     }

@@ -42,7 +42,7 @@ const variantClasses = {
     'bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-glow-sm hover:shadow-glow hover:brightness-110',
   outline:
     'border border-[color:var(--color-border-strong)] text-[color:var(--color-text)] hover:border-blue-400/60 hover:bg-blue-400/[0.06]',
-  ghost: 'text-[color:var(--color-muted)] hover:text-[color:var(--color-text)] hover:bg-white/5',
+  ghost: 'text-[color:var(--color-muted)] hover:text-[color:var(--color-text)] hover:bg-[color:var(--color-hover)]',
 }
 
 const base =

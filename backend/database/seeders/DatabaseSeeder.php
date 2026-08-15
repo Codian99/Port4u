@@ -15,13 +15,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::updateOrCreate(
-            ['email' => 'admin@example.com'],
-            [
+        // Only create the default admin on a fresh database so restarts
+        // never overwrite a changed password.
+        if (User::query()->doesntExist()) {
+            User::create([
                 'name' => 'Admin',
+                'email' => 'admin@example.com',
                 'password' => bcrypt('password'),
-            ]
-        );
+            ]);
+        }
 
         $this->call(PortfolioSeeder::class);
     }

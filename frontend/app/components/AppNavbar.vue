@@ -94,7 +94,9 @@ function toggleTheme() {
             role="menuitem"
             class="relative rounded-lg px-3.5 py-2 text-sm font-medium transition-colors"
             :class="
-              isActive(section) ? 'text-white' : 'text-[color:var(--color-muted)] hover:text-white'
+              isActive(section)
+                ? 'text-[color:var(--color-text)]'
+                : 'text-[color:var(--color-muted)] hover:text-[color:var(--color-text)]'
             "
             :aria-current="isActive(section) ? 'true' : undefined"
             @click="onNavigate"
@@ -112,7 +114,7 @@ function toggleTheme() {
       <div class="flex items-center gap-2">
         <button
           type="button"
-          class="rounded-lg p-2 text-[color:var(--color-muted)] transition-colors hover:bg-white/5 hover:text-white"
+          class="rounded-lg p-2 text-[color:var(--color-muted)] transition-colors hover:bg-[color:var(--color-hover)] hover:text-[color:var(--color-text)]"
           :aria-label="colorMode.value === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
           @click="toggleTheme"
         >
@@ -136,7 +138,7 @@ function toggleTheme() {
 
         <button
           type="button"
-          class="rounded-lg p-2 text-[color:var(--color-muted)] transition-colors hover:bg-white/5 hover:text-white md:hidden"
+          class="rounded-lg p-2 text-[color:var(--color-muted)] transition-colors hover:bg-[color:var(--color-hover)] hover:text-[color:var(--color-text)] md:hidden"
           aria-label="Open menu"
           :aria-expanded="mobileOpen ? 'true' : 'false'"
           @click="mobileOpen = true"
@@ -158,8 +160,8 @@ function toggleTheme() {
           class="flex items-center justify-between rounded-xl px-3 py-2.5 text-sm font-medium transition-colors"
           :class="
             isActive(section)
-              ? 'bg-blue-500/10 text-white'
-              : 'text-[color:var(--color-muted)] hover:bg-white/5 hover:text-white'
+              ? 'bg-blue-500/10 text-[color:var(--color-text)]'
+              : 'text-[color:var(--color-muted)] hover:bg-[color:var(--color-hover)] hover:text-[color:var(--color-text)]'
           "
           @click="onNavigate"
         >

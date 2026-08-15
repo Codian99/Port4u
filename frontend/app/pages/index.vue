@@ -434,7 +434,7 @@ const socials = computed(() => [
                   :href="social.href"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="flex items-center gap-3 text-sm text-[color:var(--color-muted)] transition-colors hover:text-white"
+                  class="flex items-center gap-3 text-sm text-[color:var(--color-muted)] transition-colors hover:text-[color:var(--color-text)]"
                 >
                   <span
                     class="flex h-10 w-10 items-center justify-center rounded-lg border border-[color:var(--color-border)]"

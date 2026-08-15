@@ -74,7 +74,7 @@ function onKeydown(event: KeyboardEvent) {
             <p class="font-display text-lg font-semibold">{{ title }}</p>
             <button
               type="button"
-              class="rounded-lg p-1.5 text-[color:var(--color-muted)] transition-colors hover:bg-white/5 hover:text-white"
+              class="rounded-lg p-1.5 text-[color:var(--color-muted)] transition-colors hover:bg-[color:var(--color-hover)] hover:text-[color:var(--color-text)]"
               aria-label="Close menu"
               @click="emit('close')"
             >

@@ -12,7 +12,7 @@ withDefaults(defineProps<Props>(), {
 })
 
 const variants = {
-  default: 'bg-white/[0.05] text-[color:var(--color-muted)] border-white/10',
+  default: 'bg-[color:var(--color-hover)] text-[color:var(--color-muted)] border-[color:var(--color-border)]',
   accent: 'bg-blue-500/10 text-blue-300 border-blue-400/25',
   success: 'bg-emerald-500/10 text-emerald-300 border-emerald-400/25',
   outline: 'border-[color:var(--color-border-strong)] text-[color:var(--color-text)]',

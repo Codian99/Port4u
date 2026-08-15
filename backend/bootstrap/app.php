@@ -13,7 +13,11 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        // The stack runs behind nginx inside Docker, so trust the proxy
+        // headers (X-Forwarded-For / X-Forwarded-Proto). Without this, rate
+        // limiting and request logging see nginx's container IP instead of
+        // the real client IP.
+        $middleware->trustProxies(at: '*');
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(
