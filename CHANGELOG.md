@@ -2,6 +2,27 @@
 
 All notable changes to the portfolio project.
 
+## [1.5.2] - 2026-08-20 — Contact section side-by-side layout
+
+### Added
+- **Contact form** (`ContactForm.vue`): name, email, subject and message fields posting to the existing `POST /api/v1/contact` endpoint, with loading, success and error states.
+
+### Changed
+- **Contact section**: replaced the single centered card with a two-column grid — form on the left, contact details and social links on the right. Stacks vertically on mobile.
+
+## [1.5.1] - 2026-08-20 — Remove Education section
+
+### Removed
+- **Education section** from the homepage: the "Where I learned the craft" block (`AppSectionTitle` + `AppTimeline`) at the end of the `#about` section in `pages/index.vue`. It rendered placeholder school/degree data and was the frontend's only consumer of `about.education`.
+
+### Notes
+- `AppTimeline` is unchanged and still used by the Experience section.
+- The `education` field is intentionally kept in `frontend/app/data/about.ts`, the `AboutProfile`/`EducationItem` types and the backend `/api/v1/about` payload (`config/portfolio.php`) — it is simply no longer rendered. Removing it from the API contract would be a separate breaking change.
+- No navbar, scroll-spy or SEO changes were needed: the block lived entirely inside `#about` and had no menu entry of its own.
+
+### Verified
+- Frontend: `npm run typecheck`, `npm run lint` and `npm run build` all pass.
+
 ## [1.5.0] - 2026-08-15 — Bug fixes, light theme and content updates
 
 ### Added
