@@ -177,27 +177,6 @@ const socials = computed(() => [
           </div>
         </div>
       </div>
-
-      <div class="mt-20">
-        <AppSectionTitle
-          eyebrow="Education"
-          title="Where I learned the craft"
-          description="Formal education and continuous learning that shaped my engineering fundamentals."
-        />
-
-        <AppTimeline
-          v-if="about?.education?.length"
-          :items="
-            about.education.map((item, index) => ({
-              id: index,
-              title: item.degree,
-              subtitle: item.school,
-              period: item.period,
-              description: item.description,
-            }))
-          "
-        />
-      </div>
     </section>
 
     <!-- Services -->
