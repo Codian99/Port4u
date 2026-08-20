@@ -363,9 +363,7 @@ const socials = computed(() => [
         description="Have a WordPress project, a role or just a question? Reach out and I'll get back to you."
       />
 
-      <div class="mx-auto grid max-w-4xl gap-8 md:grid-cols-2">
-        <ContactForm />
-
+      <div class="mx-auto max-w-2xl">
         <div v-reveal class="card-surface space-y-6 p-6 shadow-card sm:p-8">
           <div>
             <h2 class="font-display text-lg font-semibold">Contact details</h2>

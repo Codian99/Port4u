@@ -4,11 +4,8 @@ All notable changes to the portfolio project.
 
 ## [1.5.2] - 2026-08-20 — Contact section side-by-side layout
 
-### Added
-- **Contact form** (`ContactForm.vue`): name, email, subject and message fields posting to the existing `POST /api/v1/contact` endpoint, with loading, success and error states.
-
 ### Changed
-- **Contact section**: replaced the single centered card with a two-column grid — form on the left, contact details and social links on the right. Stacks vertically on mobile.
+- **Contact section**: reverted to single centered card with contact details only (form removed).
 
 ## [1.5.1] - 2026-08-20 — Remove Education section
 
