@@ -13,13 +13,6 @@ const navLinks = [
 ]
 
 const email = computed(() => about.email)
-
-const socials = computed(() => [
-  { name: 'GitHub', href: about.social.github ?? 'https://github.com/yourusername', icon: 'lucide:github' },
-  { name: 'LinkedIn', href: about.social.linkedin ?? 'https://linkedin.com/in/yourusername', icon: 'lucide:linkedin' },
-  { name: 'Facebook', href: about.social.facebook ?? 'https://facebook.com/yourusername', icon: 'lucide:facebook' },
-  { name: 'Email', href: `mailto:${email.value}`, icon: 'lucide:mail' },
-])
 </script>
 
 <template>
@@ -42,19 +35,6 @@ const socials = computed(() => [
             WordPress developer building fast, secure and maintainable websites — from custom themes
             and plugins to WooCommerce stores and hosting.
           </p>
-          <ul class="mt-6 flex items-center gap-3" aria-label="Social links">
-            <li v-for="social in socials" :key="social.name">
-              <a
-                :href="social.href"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="flex h-10 w-10 items-center justify-center rounded-xl border border-[color:var(--color-border)] text-[color:var(--color-muted)] transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/50 hover:text-[color:var(--color-text)] hover:shadow-glow-sm"
-                :aria-label="`Visit ${social.name}`"
-              >
-                <Icon :name="social.icon" :size="18" aria-hidden="true" />
-              </a>
-            </li>
-          </ul>
         </div>
 
         <div class="md:col-span-3">
