@@ -39,21 +39,21 @@ class PortfolioSeeder extends Seeder
         $categories = [
             'wordpress' => [
                 'name' => 'WordPress',
-                'icon' => 'lucide:globe',
+                'icon' => 'devicon:wordpress',
                 'skills' => [
-                    ['name' => 'WordPress Core', 'level' => 95, 'icon' => 'lucide:globe'],
-                    ['name' => 'PHP', 'level' => 93, 'icon' => 'lucide:braces'],
+                    ['name' => 'WordPress Core', 'level' => 95, 'icon' => 'devicon:wordpress'],
+                    ['name' => 'PHP', 'level' => 93, 'icon' => 'devicon:php'],
                     ['name' => 'Custom Theme Development', 'level' => 92, 'icon' => 'lucide:paintbrush'],
                     ['name' => 'Custom Plugin Development', 'level' => 90, 'icon' => 'lucide:puzzle'],
                     ['name' => 'Gutenberg / Block Editor', 'level' => 88, 'icon' => 'lucide:layout-template'],
-                    ['name' => 'ACF (Advanced Custom Fields)', 'level' => 85, 'icon' => 'lucide:file-type'],
+                    ['name' => 'Advanced Custom Fields (ACF)', 'level' => 85, 'icon' => 'lucide:form-input'],
                 ],
             ],
             'woocommerce' => [
                 'name' => 'WooCommerce',
-                'icon' => 'lucide:shopping-cart',
+                'icon' => 'devicon:woocommerce',
                 'skills' => [
-                    ['name' => 'WooCommerce Stores', 'level' => 90, 'icon' => 'lucide:shopping-cart'],
+                    ['name' => 'WooCommerce Development', 'level' => 90, 'icon' => 'lucide:shopping-cart'],
                     ['name' => 'Custom Shipping Rules', 'level' => 85, 'icon' => 'lucide:truck'],
                     ['name' => 'Payment Gateway Integration', 'level' => 84, 'icon' => 'lucide:credit-card'],
                     ['name' => 'Product Catalog Management', 'level' => 88, 'icon' => 'lucide:package'],
@@ -63,35 +63,35 @@ class PortfolioSeeder extends Seeder
                 'name' => 'Frontend & UI',
                 'icon' => 'lucide:monitor',
                 'skills' => [
-                    ['name' => 'HTML5 & CSS3', 'level' => 95, 'icon' => 'lucide:code-2'],
-                    ['name' => 'Responsive Design', 'level' => 94, 'icon' => 'lucide:smartphone'],
-                    ['name' => 'JavaScript', 'level' => 90, 'icon' => 'lucide:file-code'],
-                    ['name' => 'jQuery', 'level' => 86, 'icon' => 'lucide:code'],
-                    ['name' => 'Tailwind CSS', 'level' => 84, 'icon' => 'lucide:palette'],
-                    ['name' => 'Vue 3', 'level' => 80, 'icon' => 'lucide:atom'],
+                    ['name' => 'HTML5 & CSS3', 'level' => 95, 'icon' => 'devicon:html5'],
+                    ['name' => 'Responsive Web Design', 'level' => 94, 'icon' => 'lucide:smartphone'],
+                    ['name' => 'JavaScript', 'level' => 90, 'icon' => 'devicon:javascript'],
+                    ['name' => 'jQuery', 'level' => 86, 'icon' => 'devicon:jquery'],
+                    ['name' => 'Tailwind CSS', 'level' => 84, 'icon' => 'devicon:tailwindcss'],
+                    ['name' => 'Vue.js', 'level' => 80, 'icon' => 'devicon:vuejs'],
                 ],
             ],
             'hosting' => [
                 'name' => 'Hosting & DevOps',
                 'icon' => 'lucide:server',
                 'skills' => [
-                    ['name' => 'cPanel / WHM', 'level' => 92, 'icon' => 'lucide:layers'],
-                    ['name' => 'Site Migrations', 'level' => 90, 'icon' => 'lucide:arrow-left-right'],
-                    ['name' => 'Linux Administration', 'level' => 86, 'icon' => 'lucide:terminal'],
-                    ['name' => 'Nginx & Apache', 'level' => 84, 'icon' => 'lucide:settings'],
-                    ['name' => 'SSL & Security Hardening', 'level' => 88, 'icon' => 'lucide:shield-check'],
-                    ['name' => 'DNS Management', 'level' => 87, 'icon' => 'lucide:network'],
+                    ['name' => 'cPanel / WHM', 'level' => 92, 'icon' => 'simple-icons:cpanel'],
+                    ['name' => 'Website Migration & Deployment', 'level' => 90, 'icon' => 'lucide:arrow-left-right'],
+                    ['name' => 'Linux Server Administration', 'level' => 86, 'icon' => 'devicon:linux'],
+                    ['name' => 'Nginx & Apache', 'level' => 84, 'icon' => 'devicon:nginx'],
+                    ['name' => 'SSL, DNS & Website Security', 'level' => 88, 'icon' => 'lucide:shield-check'],
+                    ['name' => 'Domain & DNS Management', 'level' => 87, 'icon' => 'lucide:network'],
                 ],
             ],
             'tools' => [
                 'name' => 'Tools & Workflow',
                 'icon' => 'lucide:wrench',
                 'skills' => [
-                    ['name' => 'Git & GitHub', 'level' => 90, 'icon' => 'lucide:git-branch'],
-                    ['name' => 'WP-CLI', 'level' => 86, 'icon' => 'lucide:terminal-square'],
-                    ['name' => 'MySQL', 'level' => 88, 'icon' => 'lucide:database'],
-                    ['name' => 'Search Console & SEO', 'level' => 84, 'icon' => 'lucide:search'],
-                    ['name' => 'Composer', 'level' => 80, 'icon' => 'lucide:package'],
+                    ['name' => 'Git & GitHub', 'level' => 90, 'icon' => 'devicon:git'],
+                    ['name' => 'WP-CLI', 'level' => 86, 'icon' => 'lucide:square-terminal'],
+                    ['name' => 'MySQL / MariaDB', 'level' => 88, 'icon' => 'devicon:mysql'],
+                    ['name' => 'SEO & Google Search Console', 'level' => 84, 'icon' => 'lucide:search'],
+                    ['name' => 'Composer', 'level' => 80, 'icon' => 'devicon:composer'],
                 ],
             ],
         ];
@@ -104,10 +104,12 @@ class PortfolioSeeder extends Seeder
                 'sort_order' => $sort++,
             ]);
 
+            // Keyed by sort_order so renamed skills update in place
+            // instead of creating duplicates on a re-seed.
             foreach ($data['skills'] as $skillIndex => $skill) {
                 Skill::updateOrCreate(
-                    ['category_id' => $category->id, 'name' => $skill['name']],
-                    ['level' => $skill['level'], 'icon' => $skill['icon'], 'sort_order' => $skillIndex],
+                    ['category_id' => $category->id, 'sort_order' => $skillIndex],
+                    ['name' => $skill['name'], 'level' => $skill['level'], 'icon' => $skill['icon']],
                 );
             }
         }
@@ -281,7 +283,7 @@ class PortfolioSeeder extends Seeder
                 'type' => 'full-time',
                 'description' => 'Developing and maintaining WordPress websites at Pageone247 — building custom themes and plugins, WooCommerce stores and performance optimisations for client projects.',
                 'technologies' => ['WordPress', 'WooCommerce', 'PHP', 'MySQL'],
-                'start_date' => '2025-01-01',
+                'start_date' => '2023-01-01',
                 'end_date' => null,
                 'current' => true,
                 'sort_order' => 0,
@@ -295,7 +297,7 @@ class PortfolioSeeder extends Seeder
                 'description' => 'Designed and built custom WordPress sites for small businesses, including theme development, WooCommerce stores, SEO optimisation and ongoing maintenance and security hardening.',
                 'technologies' => ['WordPress', 'WooCommerce', 'Elementor', 'WPBakery'],
                 'start_date' => '2019-06-01',
-                'end_date' => '2020-12-31',
+                'end_date' => '2022-12-31',
                 'current' => false,
                 'sort_order' => 1,
             ],
@@ -307,7 +309,7 @@ class PortfolioSeeder extends Seeder
                 'type' => 'freelance',
                 'description' => 'Provided ongoing WordPress support for client websites — updates, backups, security hardening, troubleshooting and recovery. Built a reputation for fixing broken sites fast and reliably.',
                 'technologies' => ['WordPress', 'cPanel', 'SSL', 'DNS'],
-                'start_date' => '2018-01-01',
+                'start_date' => '2016-01-01',
                 'end_date' => '2019-05-31',
                 'current' => false,
                 'sort_order' => 2,
