@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { about as staticAbout } from '~/data/about'
-import { skillCategories as staticCategories } from '~/data/skills'
 import { experiences as staticExperiences } from '~/data/experience'
 
 useSeo({
@@ -10,7 +9,6 @@ useSeo({
 })
 
 const profile = useProfileStore()
-const skills = useSkillStore()
 
 const services = [
   {
@@ -85,18 +83,10 @@ const reasons = [
 ]
 
 const about = staticAbout
-const categories = staticCategories
 const experience = staticExperiences
 
 profile.$patch({ about })
 profile.$patch({ experience })
-skills.$patch({ categories })
-
-const activeCategory = ref<string | null>(null)
-
-const totalSkills = computed(
-  () => categories.reduce((acc, cat) => acc + cat.skills.length, 0)
-)
 
 function formatDate(date: string | null): string {
   if (!date) return '—'
@@ -232,64 +222,7 @@ const socials = computed(() => [
     </section>
 
     <!-- Skills -->
-    <section id="skills" class="container-page scroll-mt-24 py-20">
-      <AppSectionTitle
-        eyebrow="Capabilities"
-        title="Technologies I Work With"
-        description="From WordPress core and custom plugins to hosting, security and performance — the toolkit behind every project."
-      />
-
-      <p
-        v-reveal
-        class="mb-10 inline-flex items-center gap-2 rounded-full border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-4 py-1.5 text-sm text-[color:var(--color-muted)]"
-      >
-        <Icon name="lucide:layout-grid" :size="15" class="text-blue-400" aria-hidden="true" />
-        {{ totalSkills }} technologies across {{ categories?.length ?? 0 }} categories
-      </p>
-
-      <div
-        v-for="(category, index) in categories"
-        :key="category.slug"
-        v-reveal="{ delay: index * 0.06 }"
-        class="mb-8"
-      >
-        <div
-          class="card-surface card-surface-hover p-6 sm:p-8"
-          :class="activeCategory && activeCategory !== category.slug ? 'opacity-40' : ''"
-          @mouseenter="activeCategory = category.slug"
-          @mouseleave="activeCategory = null"
-          @focusin="activeCategory = category.slug"
-          @focusout="activeCategory = null"
-        >
-          <div class="mb-6 flex items-center gap-4">
-            <span
-              class="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500/15 to-emerald-500/10 text-blue-300"
-            >
-              <Icon :name="category.icon ?? 'lucide:box'" :size="24" aria-hidden="true" />
-            </span>
-            <div>
-              <h2 class="font-display text-xl font-semibold tracking-tight sm:text-2xl">
-                {{ category.name }}
-              </h2>
-              <p class="text-xs text-[color:var(--color-muted)]">
-                {{ category.skills.length }} skills
-              </p>
-            </div>
-          </div>
-
-          <div class="grid gap-x-10 gap-y-6 sm:grid-cols-2">
-            <AppSkillBar
-              v-for="(skill, skillIndex) in category.skills"
-              :key="skill.id"
-              :name="skill.name"
-              :level="skill.level"
-              :icon="skill.icon"
-              :delay="(skillIndex % 2) * 0.08"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
+    <SkillsSection />
 
     <!-- Experience -->
     <section id="experience" class="container-page scroll-mt-24 py-20">

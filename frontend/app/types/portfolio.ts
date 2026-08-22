@@ -18,7 +18,8 @@ export interface Project {
 export interface Skill {
   id: number
   name: string
-  level: number
+  /** Backend still returns a proficiency level; the UI no longer renders it. */
+  level?: number
   icon: string | null
 }
 
