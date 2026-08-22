@@ -229,7 +229,7 @@ const socials = computed(() => [
       <AppSectionTitle
         eyebrow="Career"
         title="Professional experience"
-        description="Five years of designing, building and maintaining WordPress websites — from custom themes and plugins to WooCommerce stores and hosting management."
+        description="A decade of designing, building and maintaining WordPress websites — from custom themes and plugins to WooCommerce stores and hosting management."
       />
 
       <div class="grid gap-12 lg:grid-cols-3">

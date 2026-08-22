@@ -45,7 +45,7 @@ const techCards: TechCard[] = [
 ]
 
 const stats = [
-  { icon: 'lucide:star', label: '3+ Years WordPress Experience' },
+  { icon: 'lucide:star', label: '10+ Years WordPress Experience' },
   { icon: 'lucide:settings', label: 'Custom Plugins' },
   { icon: 'lucide:shopping-cart', label: 'WooCommerce Solutions' },
   { icon: 'lucide:rocket', label: 'Website Performance Optimization' },

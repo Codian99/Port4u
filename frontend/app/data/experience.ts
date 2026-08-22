@@ -16,7 +16,7 @@ export const experiences: ExperienceItem[] = [
     description:
       'Developing and maintaining WordPress websites at Pageone247 — building custom themes and plugins, WooCommerce stores and performance optimisations for client projects.',
     technologies: ['WordPress', 'WooCommerce', 'PHP', 'MySQL'],
-    start_date: '2025-01-01',
+    start_date: '2023-01-01',
     end_date: null,
     current: true,
   },
@@ -31,7 +31,7 @@ export const experiences: ExperienceItem[] = [
       'Designed and built custom WordPress sites for small businesses, including theme development, WooCommerce stores, SEO optimisation and ongoing maintenance and security hardening.',
     technologies: ['WordPress', 'WooCommerce', 'Elementor', 'WPBakery'],
     start_date: '2019-06-01',
-    end_date: '2020-12-31',
+    end_date: '2022-12-31',
     current: false,
   },
   {
@@ -44,7 +44,7 @@ export const experiences: ExperienceItem[] = [
     description:
       'Provided ongoing WordPress support for client websites — updates, backups, security hardening, troubleshooting and recovery. Built a reputation for fixing broken sites fast and reliably.',
     technologies: ['WordPress', 'cPanel', 'SSL', 'DNS'],
-    start_date: '2018-01-01',
+    start_date: '2016-01-01',
     end_date: '2019-05-31',
     current: false,
   },
